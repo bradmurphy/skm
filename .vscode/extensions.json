@@ -1,0 +1,415 @@
+{
+  "recommendations": [
+    {
+      "metadata": {
+        "id": "d3836729-9cc1-42c1-b2af-d50071f57d29",
+        "publisherId": "formulahendry.auto-close-tag",
+        "publisherDisplayName": "formulahendry"
+      },
+      "name": "auto-close-tag",
+      "publisher": "formulahendry",
+      "version": "0.5.6"
+    },
+    {
+      "metadata": {
+        "id": "366a9f01-2d1b-48b9-b7df-014ff8dea46b",
+        "publisherId": "formulahendry.auto-complete-tag",
+        "publisherDisplayName": "formulahendry"
+      },
+      "name": "auto-complete-tag",
+      "publisher": "formulahendry",
+      "version": "0.0.2"
+    },
+    {
+      "metadata": {
+        "id": "6e440e71-8ed9-4f25-bb78-4b13096b8a03",
+        "publisherId": "formulahendry.auto-rename-tag",
+        "publisherDisplayName": "formulahendry"
+      },
+      "name": "auto-rename-tag",
+      "publisher": "formulahendry",
+      "version": "0.0.15"
+    },
+    {
+      "metadata": {
+        "id": "b689fcc8-d494-4dbf-a228-2c694a578afc",
+        "publisherId": "alefragnani.Bookmarks",
+        "publisherDisplayName": "alefragnani"
+      },
+      "name": "Bookmarks",
+      "publisher": "alefragnani",
+      "version": "0.18.1"
+    },
+    {
+      "metadata": {
+        "id": "f583eafd-aa0d-4ccb-8f44-d1e610389660",
+        "publisherId": "CoenraadS.bracket-pair-colorizer",
+        "publisherDisplayName": "CoenraadS"
+      },
+      "name": "bracket-pair-colorizer",
+      "publisher": "CoenraadS",
+      "version": "0.10.14"
+    },
+    {
+      "metadata": {
+        "id": "244caab0-8ded-4b4b-9d9d-7315964e7aed",
+        "publisherId": "lixquid.calculator",
+        "publisherDisplayName": "lixquid"
+      },
+      "name": "calculator",
+      "publisher": "lixquid",
+      "version": "0.1.1"
+    },
+    {
+      "metadata": {
+        "id": "2aa040bf-c73a-455d-8946-5c6cc83b8019",
+        "publisherId": "wmaurer.change-case",
+        "publisherDisplayName": "wmaurer"
+      },
+      "name": "change-case",
+      "publisher": "wmaurer",
+      "version": "1.0.0"
+    },
+    {
+      "metadata": {
+        "id": "8a0c151b-eb13-4bed-9d49-4a252a118a0c",
+        "publisherId": "michelemelluso.code-beautifier",
+        "publisherDisplayName": "michelemelluso"
+      },
+      "name": "code-beautifier",
+      "publisher": "michelemelluso",
+      "version": "1.7.2"
+    },
+    {
+      "metadata": {
+        "id": "e337c67b-55c2-4fef-8949-eb260e7fb7fd",
+        "publisherId": "Shan.code-settings-sync",
+        "publisherDisplayName": "Shan"
+      },
+      "name": "code-settings-sync",
+      "publisher": "Shan",
+      "version": "2.8.7"
+    },
+    {
+      "metadata": {
+        "id": "060828aa-17ab-40d9-9e2d-f8407f5c8d04",
+        "publisherId": "alexdima.copy-relative-path",
+        "publisherDisplayName": "alexdima"
+      },
+      "name": "copy-relative-path",
+      "publisher": "alexdima",
+      "version": "0.0.1"
+    },
+    {
+      "metadata": {
+        "id": "90a838c3-675b-4b87-b7a5-75ea88432cce",
+        "publisherId": "joelday.docthis",
+        "publisherDisplayName": "joelday"
+      },
+      "name": "docthis",
+      "publisher": "joelday",
+      "version": "0.6.0"
+    },
+    {
+      "metadata": {
+        "id": "1b625615-bded-4797-9806-079abcacfcc1",
+        "publisherId": "letrieu.expand-region",
+        "publisherDisplayName": "letrieu"
+      },
+      "name": "expand-region",
+      "publisher": "letrieu",
+      "version": "0.1.2"
+    },
+    {
+      "metadata": {
+        "id": "b3917e4f-5086-4def-a82b-2ae6b708db16",
+        "publisherId": "flowtype.flow-for-vscode",
+        "publisherDisplayName": "flowtype"
+      },
+      "name": "flow-for-vscode",
+      "publisher": "flowtype",
+      "version": "0.7.3"
+    },
+    {
+      "metadata": {
+        "id": "2335b326-c334-4e81-bc51-c408fcec6e7c",
+        "publisherId": "waderyan.gitblame",
+        "publisherDisplayName": "waderyan"
+      },
+      "name": "gitblame",
+      "publisher": "waderyan",
+      "version": "2.2.0"
+    },
+    {
+      "metadata": {
+        "id": "5960f38e-0bbe-4644-8f9c-9c8824e82511",
+        "publisherId": "donjayamanne.githistory",
+        "publisherDisplayName": "donjayamanne"
+      },
+      "name": "githistory",
+      "publisher": "donjayamanne",
+      "version": "0.4.0"
+    },
+    {
+      "metadata": {
+        "id": "7b71fc1b-190d-4f7d-95d1-93e422649b0a",
+        "publisherId": "Zignd.html-css-class-completion",
+        "publisherDisplayName": "Zignd"
+      },
+      "name": "html-css-class-completion",
+      "publisher": "Zignd",
+      "version": "1.17.1"
+    },
+    {
+      "metadata": {
+        "id": "be992f3f-9f22-4b66-a1d2-ecad04c28a28",
+        "publisherId": "abusaidm.html-snippets",
+        "publisherDisplayName": "abusaidm"
+      },
+      "name": "html-snippets",
+      "publisher": "abusaidm",
+      "version": "0.2.1"
+    },
+    {
+      "metadata": {
+        "id": "0ec558c9-f7f7-4df3-b2cf-a41ddcf292dd",
+        "publisherId": "mkaufman.HTMLHint",
+        "publisherDisplayName": "mkaufman"
+      },
+      "name": "HTMLHint",
+      "publisher": "mkaufman",
+      "version": "0.4.0"
+    },
+    {
+      "metadata": {
+        "id": "5a48d076-e0a9-406c-b349-d8260a51474b",
+        "publisherId": "jonwolfe.language-polymer",
+        "publisherDisplayName": "jonwolfe"
+      },
+      "name": "language-polymer",
+      "publisher": "jonwolfe",
+      "version": "1.0.3"
+    },
+    {
+      "metadata": {
+        "id": "93ecc089-f396-47b4-8676-7fa3bc156a2c",
+        "publisherId": "sysoev.language-stylus",
+        "publisherDisplayName": "sysoev"
+      },
+      "name": "language-stylus",
+      "publisher": "sysoev",
+      "version": "1.9.0"
+    },
+    {
+      "metadata": {
+        "id": "ad94b437-b5a7-4249-bf5f-df472ae0d084",
+        "publisherId": "ritwickdey.live-sass",
+        "publisherDisplayName": "ritwickdey"
+      },
+      "name": "live-sass",
+      "publisher": "ritwickdey",
+      "version": "1.3.0"
+    },
+    {
+      "metadata": {
+        "id": "b63c44fd-0457-4696-99e9-dbfdf70d77de",
+        "publisherId": "ritwickdey.LiveServer",
+        "publisherDisplayName": "ritwickdey"
+      },
+      "name": "LiveServer",
+      "publisher": "ritwickdey",
+      "version": "3.2.1"
+    },
+    {
+      "metadata": {
+        "id": "98790d67-10fa-497c-9113-f6c7489207b2",
+        "publisherId": "yzhang.markdown-all-in-one",
+        "publisherDisplayName": "yzhang"
+      },
+      "name": "markdown-all-in-one",
+      "publisher": "yzhang",
+      "version": "1.0.5"
+    },
+    {
+      "metadata": {
+        "id": "dff6b801-247e-40e9-82e8-8c9b1d19d1b8",
+        "publisherId": "christian-kohler.npm-intellisense",
+        "publisherDisplayName": "christian-kohler"
+      },
+      "name": "npm-intellisense",
+      "publisher": "christian-kohler",
+      "version": "1.3.0"
+    },
+    {
+      "metadata": {
+        "id": "a41c1549-4053-44d4-bf30-60fc809b4a86",
+        "publisherId": "christian-kohler.path-intellisense",
+        "publisherDisplayName": "christian-kohler"
+      },
+      "name": "path-intellisense",
+      "publisher": "christian-kohler",
+      "version": "1.4.2"
+    },
+    {
+      "metadata": {
+        "id": "96fa4707-6983-4489-b7c5-d5ffdfdcce90",
+        "publisherId": "esbenp.prettier-vscode",
+        "publisherDisplayName": "esbenp"
+      },
+      "name": "prettier-vscode",
+      "publisher": "esbenp",
+      "version": "1.1.3"
+    },
+    {
+      "metadata": {
+        "id": "f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5",
+        "publisherId": "ms-python.python",
+        "publisherDisplayName": "ms-python"
+      },
+      "name": "python",
+      "publisher": "ms-python",
+      "version": "2018.1.0"
+    },
+    {
+      "metadata": {
+        "id": "aae0701b-111f-49c1-9000-abd37a442f28",
+        "publisherId": "WallabyJs.quokka-vscode",
+        "publisherDisplayName": "WallabyJs"
+      },
+      "name": "quokka-vscode",
+      "publisher": "WallabyJs",
+      "version": "1.0.104"
+    },
+    {
+      "metadata": {
+        "id": "e52bce95-a629-455f-8626-e7301b9e372a",
+        "publisherId": "robinbentley.sass-indented",
+        "publisherDisplayName": "robinbentley"
+      },
+      "name": "sass-indented",
+      "publisher": "robinbentley",
+      "version": "1.4.8"
+    },
+    {
+      "metadata": {
+        "id": "76e37267-9f32-4816-b6c8-47a3928b94c9",
+        "publisherId": "Tyriar.shell-launcher",
+        "publisherDisplayName": "Tyriar"
+      },
+      "name": "shell-launcher",
+      "publisher": "Tyriar",
+      "version": "0.1.6"
+    },
+    {
+      "metadata": {
+        "id": "00518570-772b-4ccb-8b06-d056f3f556e0",
+        "publisherId": "Tyriar.sort-lines",
+        "publisherDisplayName": "Tyriar"
+      },
+      "name": "sort-lines",
+      "publisher": "Tyriar",
+      "version": "1.4.1"
+    },
+    {
+      "metadata": {
+        "id": "513cf511-3894-4ee2-8c34-13ab83ddfd37",
+        "publisherId": "eg2.tslint",
+        "publisherDisplayName": "eg2"
+      },
+      "name": "tslint",
+      "publisher": "eg2",
+      "version": "1.0.28"
+    },
+    {
+      "metadata": {
+        "id": "70159dd5-3ca5-4ccc-a7ae-011a662e08c2",
+        "publisherId": "mrmlnc.vscode-autoprefixer",
+        "publisherDisplayName": "mrmlnc"
+      },
+      "name": "vscode-autoprefixer",
+      "publisher": "mrmlnc",
+      "version": "2.1.2"
+    },
+    {
+      "metadata": {
+        "id": "583b2b34-2c1e-4634-8c0b-0b82e283ea3a",
+        "publisherId": "dbaeumer.vscode-eslint",
+        "publisherDisplayName": "dbaeumer"
+      },
+      "name": "vscode-eslint",
+      "publisher": "dbaeumer",
+      "version": "1.4.6"
+    },
+    {
+      "metadata": {
+        "id": "aaee577c-f062-495a-9816-0cbd442f1d25",
+        "publisherId": "ecmel.vscode-html-css",
+        "publisherDisplayName": "ecmel"
+      },
+      "name": "vscode-html-css",
+      "publisher": "ecmel",
+      "version": "0.2.0"
+    },
+    {
+      "metadata": {
+        "id": "dd5a2c83-ad8c-4839-a529-0644e5acb646",
+        "publisherId": "mgmcdermott.vscode-language-babel",
+        "publisherDisplayName": "mgmcdermott"
+      },
+      "name": "vscode-language-babel",
+      "publisher": "mgmcdermott",
+      "version": "0.0.12"
+    },
+    {
+      "metadata": {
+        "id": "daf8b44d-8aae-4da2-80c5-1f770219f643",
+        "publisherId": "DavidAnson.vscode-markdownlint",
+        "publisherDisplayName": "DavidAnson"
+      },
+      "name": "vscode-markdownlint",
+      "publisher": "DavidAnson",
+      "version": "0.13.0"
+    },
+    {
+      "metadata": {
+        "id": "ae9e3eb0-3357-4cc0-90ee-598d2d384757",
+        "publisherId": "eg2.vscode-npm-script",
+        "publisherDisplayName": "eg2"
+      },
+      "name": "vscode-npm-script",
+      "publisher": "eg2",
+      "version": "0.3.3"
+    },
+    {
+      "metadata": {
+        "id": "97a08c5f-6667-4242-a5c5-045dfb6bd4b9",
+        "publisherId": "wayou.vscode-todo-highlight",
+        "publisherDisplayName": "wayou"
+      },
+      "name": "vscode-todo-highlight",
+      "publisher": "wayou",
+      "version": "0.5.11"
+    },
+    {
+      "metadata": {
+        "id": "f2fd462f-f1bd-4c62-b54f-59a4e5ffc6a3",
+        "publisherId": "WakaTime.vscode-wakatime",
+        "publisherDisplayName": "WakaTime"
+      },
+      "name": "vscode-wakatime",
+      "publisher": "WakaTime",
+      "version": "1.1.22"
+    },
+    {
+      "metadata": {
+        "id": "0cb81da2-1880-4755-9995-0ae9cc728e20",
+        "publisherId": "DotJoshJohnson.xml",
+        "publisherDisplayName": "DotJoshJohnson"
+      },
+      "name": "xml",
+      "publisher": "DotJoshJohnson",
+      "version": "1.9.2"
+    }
+  ]
+}
+
