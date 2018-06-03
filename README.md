@@ -34,7 +34,7 @@ To see detailed documentation for the CLI commands.
 
 ## Deploy
 
-Gatsby is a static site generator.  In order for WordPress data to refresh once content is updated, I've used [netlify](https://www.netlify.com/) to handle deployment.  It's a free service and pretty nice to use.  It does take a little set up in WordPress and Netlify to work, however.
+Gatsby is a static site generator.  In order for WordPress data to refresh once content is updated, I've used [Netlify](https://www.netlify.com/) to handle deployment.  It's a free service and pretty nice to use.  It does take a little set up in WordPress and Netlify to work, however.
 
 First, in Netlify - go to your _Deploy settings_.  Under _Continious Deployment_ add a new build hook, name it whatever you want.
 
