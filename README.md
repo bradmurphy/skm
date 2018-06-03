@@ -1,28 +1,33 @@
-# gatsby-starter-default
+# SKM | Scott Kendall Music
 
-Minimalistic starter template for Gatsby with Redux and Emotion to get you started.
+## Project Requirements
 
-## Demo
+* [nodejs](https://nodejs.org/en/)
+* [Gatsby](https://www.gatsbyjs.org/)
+* [React](https://reactjs.org)
 
-https://caki0915.github.io/gatsby-starter-redux/
+First install gatsby:
 
-## Features
+#### `npm install --global gatsby-cli`
 
-* [Redux](https://github.com/reactjs/redux) and [Redux-devtools](https://github.com/gaearon/redux-devtools).
-* [Emotion](https://github.com/emotion-js/emotion) with a basic theme and SSR
-* [Typography.js](https://kyleamathews.github.io/typography.js/)
-* Eslint rules based on Prettier and Airbnb
+Then install the project requirements:
 
-## Install
+#### `npm install`
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+## Commands
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+#### `gatsby develop`
 
-```
-gatsby new your-project-name https://github.com/caki0915/gatsby-starter-redux
-```
+Gatsby will start a hot-reloading development environment accessible at localhost:8000
+Try editing the javascript pages in src/pages. Saved changes will live reload in the browser.
 
-## Deploy
+#### `gatsby build`
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/caki0915/gatsby-starter-redux)
+Gatsby will perform an optimized production build for your site generating static HTML and per-route JavaScript code bundles.
+
+#### `gatsby serve`
+
+Gatsby starts a local HTML server for testing your built site.
+
+#### `gatsby --help`
+To see detailed documentation for the CLI commands.
