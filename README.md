@@ -10,9 +10,11 @@
     - [gatsby-plugin-typography](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-typography)
 - [React](https://reactjs.org)
   - _plugins:_
+    - [emotion](https://github.com/emotion-js/emotion)
     - [redux](https://github.com/reduxjs/redux)
     - [redux-devtools](https://github.com/reduxjs/redux-devtools)
     - [react-redux](https://github.com/reduxjs/react-redux)
+    - [Typography.js](https://kyleamathews.github.io/typography.js/)
 - [WordPress](https://wordpress.com/)
   - _plugins:_
     - [HookPress](https://wordpress.org/plugins/hookpress/)
