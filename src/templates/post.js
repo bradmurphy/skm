@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class PostTemplate extends Component {
   render() {
     const post = this.props.data.wordpressPost;
+    console.log(wordpressPost.category);
     return (
       <div>
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />

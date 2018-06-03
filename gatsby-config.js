@@ -26,6 +26,10 @@ module.exports = {
         // This feature is untested for sites hosted on Wordpress.com.
         // Defaults to true.
         useACF: true,
+        searchAndReplaceContentUrls: {
+          sourceUrl: 'http://skwp.bradmurphydev.com',
+          replacementUrl: 'http://localhost:8000',
+        },
         verboseOutput: false,
       },
     },

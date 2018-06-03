@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create Page pages.
-        const pageTemplate = path.resolve(`./src/templates/page.js`);
+        const sectionTemplate = path.resolve(`./src/templates/section.js`);
         // We want to create a detailed page for each
         // page node. We'll just use the Wordpress Slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             // optional but is often necessary so the template
             // can query data specific to each page.
             path: `/${edge.node.slug}/`,
-            component: slash(pageTemplate),
+            component: slash(sectionTemplate),
             context: {
               id: edge.node.id,
             },

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class PageTemplate extends Component {
+class SectionTemplate extends Component {
   render() {
     const page = this.props.data.wordpressPage;
     return (
@@ -13,10 +13,10 @@ class PageTemplate extends Component {
   }
 }
 
-export default PageTemplate;
+export default SectionTemplate;
 
-export const pageQuery = graphql`
-  query currentPageQuery($id: String!) {
+export const sectionQuery = graphql`
+  query currentSectionQuery($id: String!) {
     wordpressPage(id: { eq: $id }) {
       title
       content
