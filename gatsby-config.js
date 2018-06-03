@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Redux Starter',
+    title: 'Gatsby Wordpress Redux Integration',
   },
   plugins: [
     /*

@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-design-redux",
-  "description": "Gatsby starter using redux",
+  "name": "gatsby-wordpress-redux-integration",
+  "description": "Gatsby starter using Redux and WordPress",
   "version": "0.0.1",
-  "author": "Carl-Johan Kihl <carljohan.kihl@gmail.com>",
+  "author": "Brad Murphy <bm.dev84@gmail.com>",
   "dependencies": {
     "emotion": "^9.0.0",
     "emotion-server": "^9.0.0",
