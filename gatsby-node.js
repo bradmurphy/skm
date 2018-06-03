@@ -74,9 +74,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   node {
                     id
                     slug
-                    status
-                    template
-                    format
+                    title
+                    content
+                    excerpt
+                    date
+                    categories {
+                      slug
+                      name
+                    }
                   }
                 }
               }

@@ -6,6 +6,10 @@ class Home extends Component {
   render() {
     const { data } = this.props;
 
+    data.allWordpressPost.edges.map(({ node }) => {
+      console.log(node.categories[0]);
+    });
+
     return (
       <div>
         <div css={{ marginBottom: 10 }}>
@@ -22,13 +26,15 @@ class Home extends Component {
         </div>
         <hr />
         <h1>Posts</h1>
-        {data.allWordpressPost.edges.map(({ node }) => (
+        {data.allWordpressPost.edges.map(({ node }, index) => (
           <div css={{ marginBottom: 10 }} key={node.slug}>
             <Link to={node.slug} css={{ textDecoration: `none` }}>
               <h3>{node.title}</h3>
             </Link>
             <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <p>{node.category}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: node.categories[index].name }}
+            />
           </div>
         ))}
       </div>
@@ -59,6 +65,10 @@ export const pageQuery = graphql`
           excerpt
           slug
           date
+          categories {
+            slug
+            name
+          }
         }
       }
     }

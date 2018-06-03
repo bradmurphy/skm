@@ -27,7 +27,7 @@ export const postQuery = graphql`
       title
       content
       slug
-      date
+      date(formatString: "MMMM DD, YYYY")
     }
   }
 `;
