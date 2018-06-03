@@ -39,7 +39,7 @@ const Overlay = styled.div`
 
 const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
   <ThemeProvider theme={theme}>
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <Helmet
         title="Scott Kendall Music"
         meta={[
