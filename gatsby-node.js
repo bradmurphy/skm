@@ -18,93 +18,91 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     // from the fetched data that you can run queries against.
 
     // ==== PAGES (WORDPRESS NATIVE) ====
-    graphql(`
-      {
-        allWordpressPage {
-          edges {
-            node {
-              id
-              title
-              content
-              excerpt
-              date
-              modified
-              slug
-              status
+    graphql(
+      `
+        {
+          allWordpressPage {
+            edges {
+              node {
+                id
+                slug
+                status
+                template
+              }
             }
           }
         }
-      }
-    `).then(result => {
-      if (result.errors) {
-        console.log(result.errors);
-        reject(result.errors);
-      }
-      console.log(result);
-      // Create Page pages.
-      // const pageTemplate = path.resolve(`./src/templates/page.js`);
-      // We want to create a detailed page for each
-      // page node. We'll just use the Wordpress Slug for the slug.
-      // The Page ID is prefixed with 'PAGE_'
-      _.each(result.data.allWordpressPage.edges, edge => {
-        console.log(edge);
-        // Gatsby uses Redux to manage its internal state.
-        // Plugins and sites can use functions like "createPage"
-        // to interact with Gatsby.
-        // createPage({
-        //   // Each page is required to have a `path` as well
-        //   // as a template component. The `context` is
-        //   // optional but is often necessary so the template
-        //   // can query data specific to each page.
-        //   path: `/${edge.node.slug}/`,
-        //   component: slash(pageTemplate),
-        //   context: {
-        //     id: edge.node.id,
-        //   },
-        // });
-      });
-    });
-    // ==== END PAGES ====
+      `,
+    )
+      .then(result => {
+        if (result.errors) {
+          console.log(result.errors);
+          reject(result.errors);
+        }
 
-    // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
-    // .then(() => {
-    //   graphql(
-    //     `
-    //       {
-    //         allWordpressPost {
-    //           edges {
-    //             node {
-    //               id
-    //               slug
-    //               status
-    //               template
-    //               format
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `,
-    //   ).then(result => {
-    //     if (result.errors) {
-    //       console.log(result.errors);
-    //       reject(result.errors);
-    //     }
-    //     const postTemplate = path.resolve(`./src/templates/post.js`);
-    //     // We want to create a detailed page for each
-    //     // post node. We'll just use the Wordpress Slug for the slug.
-    //     // The Post ID is prefixed with 'POST_'
-    //     _.each(result.data.allWordpressPost.edges, edge => {
-    //       createPage({
-    //         path: edge.node.slug,
-    //         component: slash(postTemplate),
-    //         context: {
-    //           id: edge.node.id,
-    //         },
-    //       });
-    //     });
-    //     resolve();
-    //   });
-    // });
+        // Create Page pages.
+        const pageTemplate = path.resolve(`./src/templates/page.js`);
+        // We want to create a detailed page for each
+        // page node. We'll just use the Wordpress Slug for the slug.
+        // The Page ID is prefixed with 'PAGE_'
+        _.each(result.data.allWordpressPage.edges, edge => {
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.slug}/`,
+            component: slash(pageTemplate),
+            context: {
+              id: edge.node.id,
+            },
+          });
+        });
+      })
+      // ==== END PAGES ====
+
+      // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
+      .then(() => {
+        graphql(
+          `
+            {
+              allWordpressPost {
+                edges {
+                  node {
+                    id
+                    slug
+                    status
+                    template
+                    format
+                  }
+                }
+              }
+            }
+          `,
+        ).then(result => {
+          if (result.errors) {
+            console.log(result.errors);
+            reject(result.errors);
+          }
+          const postTemplate = path.resolve(`./src/templates/post.js`);
+          // We want to create a detailed page for each
+          // post node. We'll just use the Wordpress Slug for the slug.
+          // The Post ID is prefixed with 'POST_'
+          _.each(result.data.allWordpressPost.edges, edge => {
+            createPage({
+              path: edge.node.slug,
+              component: slash(postTemplate),
+              context: {
+                id: edge.node.id,
+              },
+            });
+          });
+          resolve();
+        });
+      });
     // ==== END POSTS ====
   });
 };
