@@ -32,7 +32,7 @@ Then install the project:
 ## Commands
 
 | Command | Description |
-| --- | --- |
+| :---: | --- |
 | `gatsby develop` | Starts a hot-reloading development environment accessible at localhost:8000. |
 | `gatsby build`   | Builds optimized production build, generating static HTML and per-route JavaScript code bundles. |
 | `gatsby serve`   | Starts a local HTML server for testing your built site. |
