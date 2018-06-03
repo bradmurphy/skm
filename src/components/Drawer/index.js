@@ -35,27 +35,29 @@ const Item = styled.a`
   cursor: pointer;
 `;
 
-// Static data to keep it simple
-const items = [{ url: '/', name: 'Home' }, { url: '/about/', name: 'About' }];
-
-const Drawer = ({ isDrawerOpen, toggleDrawer }) => (
-  <Paper isDrawerOpen={isDrawerOpen}>
-    <Header />
-    {items.map(item => (
-      <Item
-        key={item.url}
-        onClick={() => {
-          navigateTo(withPrefix(item.url));
-          toggleDrawer(false);
-        }}
-      >
-        {item.name}
-      </Item>
-    ))}
-  </Paper>
-);
+const Drawer = ({ isDrawerOpen, toggleDrawer, navItems }) => {
+  return (
+    <Paper isDrawerOpen={isDrawerOpen}>
+      <Header />
+      {navItems.map(item => (
+        <Item
+          key={item.url}
+          onClick={() => {
+            navigateTo(withPrefix(item.url));
+            toggleDrawer(false);
+          }}
+        >
+          {item.name}
+        </Item>
+      ))}
+    </Paper>
+  );
+};
 
 export default connect(
-  state => ({ isDrawerOpen: state.app.isDrawerOpen }),
+  state => ({
+    isDrawerOpen: state.app.isDrawerOpen,
+    navItems: state.app.navItems,
+  }),
   dispatch => ({ toggleDrawer: open => dispatch(toggleDrawerAction(open)) }),
 )(Drawer);

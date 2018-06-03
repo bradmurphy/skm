@@ -41,7 +41,7 @@ const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet
-        title="Gatsby Default Redux Starter"
+        title="Scott Kendall Music"
         meta={[
           { name: 'description', content: 'Sample' },
           { name: 'keywords', content: 'sample, something' },

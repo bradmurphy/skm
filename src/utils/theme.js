@@ -5,12 +5,12 @@
 const palette = {
   primary: {
     contrast: 'white',
-    main: 'linear-gradient(to right, #4568dc, #b06ab3)',
+    main: 'linear-gradient(to right, #ffa100, #1C1C1C)',
   },
   secondary: {
     contrast: 'grey',
     main: '#242424',
-    dark: '#181818',
+    dark: '#1C1C1C',
   },
 };
 

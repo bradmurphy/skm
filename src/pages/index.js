@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 class Home extends Component {
@@ -37,7 +36,6 @@ class Home extends Component {
 
 export default Home;
 
-// Set here the ID of the home page.
 export const pageQuery = graphql`
   query homePageQuery {
     allWordpressPage {

@@ -56,7 +56,7 @@ const Header = ({ isDrawerOpen, toggleDrawer }) => (
       >
         <Hamburger />
       </MenuIcon>
-      <Title to="/">Gatsby</Title>
+      <Title to="/">Scott Kendall Music</Title>
     </Top>
     <Navbar isDrawerOpen={isDrawerOpen} />
   </div>
