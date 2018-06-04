@@ -2,6 +2,8 @@ const initialState = {
   isDrawerOpen: false,
   navItems: [
     { url: '/', name: 'Home' },
+    { url: '/blog/', name: 'Blog' },
+    { url: '/shows/', name: 'Shows' },
     { url: '/about/', name: 'About' },
     { url: '/services/', name: 'Services' },
   ],

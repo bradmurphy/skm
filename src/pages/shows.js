@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 
-class Home extends Component {
+class Shows extends Component {
   render() {
     const { data } = this.props;
 
     return (
       <div>
-        <h1>Upcoming Shows</h1>
+        <h1>Shows</h1>
         {data.allWordpressPost.edges.map(({ node }) => {
           const show = node.categories[0].slug === 'show';
           const {
@@ -20,7 +20,7 @@ class Home extends Component {
 
           return (
             show && (
-              <div css={{ marginBottom: 10 }} key={node.slug}>
+              <div css={{ marginBottom: 25 }} key={node.slug}>
                 <h5>
                   <span css={{ fontWeight: 'bold' }}>WHEN:</span> {show_date}
                   {' @ '}
@@ -40,6 +40,7 @@ class Home extends Component {
                 >
                   <span>{venue_name}</span>
                 </a>
+                <hr css={{ marginTop: 25 }} />
               </div>
             )
           );
@@ -49,10 +50,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Shows;
 
 export const pageQuery = graphql`
-  query homeQuery {
+  query showsQuery {
     allWordpressPost(sort: { fields: [date] }) {
       edges {
         node {
