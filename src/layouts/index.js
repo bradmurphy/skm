@@ -9,11 +9,14 @@ import theme from '../utils/theme';
 import { toggleDrawer as toggleDrawerAction } from '../state/app';
 
 const Container = styled.main`
+  background: ${p => p.theme.colors.offWhite};
   width: 100vw;
   overflow-x: hidden;
 `;
 
 const Content = styled.section`
+  background: transparent;
+  height: 100vh;
   transition: transform 0.3s ease-in-out;
   transform: perspective(200px)
     ${p =>

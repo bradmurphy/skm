@@ -61,7 +61,7 @@ const LogoNameContainer = styled.div`
 `;
 
 const FirstName = styled.span`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.offWhite};
   font-size: ${p => p.theme.size(1.75)};
   line-height: ${p => p.theme.sizeLH(1.75)};
   letter-spacing: 6.75px;

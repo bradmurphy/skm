@@ -5,7 +5,8 @@
 const colors = {
   gray: 'gray',
   darkgray: '#242424',
-  white: '#fafafa',
+  offWhite: '#f9f1f1',
+  white: '#fff',
   black: '#1C1C1C',
   orange: '#ffa100',
   transparent: 'transparent',

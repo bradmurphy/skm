@@ -45,8 +45,8 @@ const ShowWrap = styled.div`
 `;
 
 const Show = styled.div`
-  background: ${p => p.theme.colors.white};
-  color: ${p => p.theme.colors.white};
+  background: ${p => p.theme.colors.offWhite};
+  color: ${p => p.theme.colors.offWhite};
   max-width: 650px;
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -94,7 +94,7 @@ const InfoLink = styled.a`
 
 const Info = styled.a`
   font-family: ${p => p.theme.typography.ui};
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.offWhite};
   font-size: ${p => p.theme.size(0.75)};
   line-height: ${p => p.theme.sizeLH(0.75)};
   text-transform: uppercase;
