@@ -7,7 +7,7 @@ class Home extends Component {
 
     return (
       <div>
-        <div css={{ marginBottom: 10 }}>
+        {/* <div css={{ marginBottom: 10 }}>
           <h1>Pages</h1>
           {data.allWordpressPage.edges.map(({ node }) => (
             <div key={node.slug}>
@@ -18,17 +18,20 @@ class Home extends Component {
               <span>{node.date}</span>
             </div>
           ))}
-        </div>
-        <hr />
-        <h1>Posts</h1>
-        {data.allWordpressPost.edges.map(({ node }) => (
-          <div css={{ marginBottom: 10 }} key={node.slug}>
-            <Link to={node.slug} css={{ textDecoration: `none` }}>
-              <h3>{node.title}</h3>
-            </Link>
-            <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        ))}
+        </div> */}
+        <h1>Upcoming Shows</h1>
+        {data.allWordpressPost.edges.map(({ node }) => {
+          const show = node.categories[0].slug === 'show';
+          console.log(node.acf);
+          show && (
+            <div css={{ marginBottom: 10 }} key={node.slug}>
+              <Link to={node.slug} css={{ textDecoration: `none` }}>
+                <h3 />
+              </Link>
+              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -58,6 +61,9 @@ export const pageQuery = graphql`
           categories {
             slug
             name
+          }
+          acf {
+            show_date
           }
         }
       }
