@@ -9,7 +9,7 @@ const MenuIcon = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 ${p => p.theme.size(1)};
+  padding: 0 20px;
   align-self: stretch;
   transition: right 0.3s ease-in-out;
   left: ${p => (p.isDrawerOpen ? p.theme.size(1) : `-${p.theme.size(4)}`)};
@@ -24,7 +24,6 @@ const Navbar = styled.div`
   z-index: ${p => p.theme.zIndex.header};
   top: 0;
   left: 0;
-  padding-left: ${p => p.theme.size(0.5)};
   background: ${p => p.theme.colors.transparent};
 `;
 
@@ -38,7 +37,7 @@ const Top = styled.header`
   z-index: ${p => p.theme.zIndex.header + 25};
   top: 0;
   left: 0;
-  padding: 20px 30px 20px 0;
+  padding: 20px 40px 20px 0;
 `;
 
 const Logo = styled(Link)`
