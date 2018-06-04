@@ -2,15 +2,16 @@
 
 ## Project Requirements
 
-- [nodejs](https://nodejs.org/en/)
 - [Gatsby](https://www.gatsbyjs.org/)
   - _plugins:_
-    - [gatsby-source-wordpress](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-wordpress)
     - [gatsby-plugin-react-helmet](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet)
     - [gatsby-plugin-sharp](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sharp)
-    - [gatsby-plugin-transformer-sharp](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp)
     - [gatsby-plugin-typography](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-typography)
-- [React](https://reactjs.org)
+    - [gatsby-source-wordpress](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-wordpress)
+    - [gatsby-transformer-sharp](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-sharp)
+- [Netlify](https://www.netlify.com/)
+- [nodejs](https://nodejs.org/en/)
+- [React](https://reactjs.org/)
   - _plugins:_
     - [emotion](https://github.com/emotion-js/emotion)
     - [redux](https://github.com/reduxjs/redux)
@@ -20,7 +21,6 @@
 - [WordPress](https://wordpress.com/)
   - _plugins:_
     - [HookPress](https://wordpress.org/plugins/hookpress/)
-- [Netlify](https://www.netlify.com/)
 
 
 ## Installation
