@@ -16,7 +16,7 @@ const MenuIcon = styled.a`
 `;
 
 const Navbar = styled.div`
-  height: ${p => p.theme.size(4)};
+  height: ${p => p.theme.size(8)};
   width: 100vw;
   display: flex;
   align-items: center;
@@ -25,25 +25,71 @@ const Navbar = styled.div`
   top: 0;
   left: 0;
   padding-left: ${p => p.theme.size(0.5)};
-  background: ${p => p.theme.palette.primary.main};
+  background: ${p => p.theme.colors.transparent};
 `;
 
 const Top = styled.header`
   display: flex;
   align-items: center;
-  height: ${p => p.theme.size(4)};
+  justify-content: space-between;
+  height: ${p => p.theme.size(8)};
   width: 100vw;
   position: fixed;
   z-index: ${p => p.theme.zIndex.header + 25};
   top: 0;
   left: 0;
+  padding: 20px 30px 20px 0;
 `;
 
-const Title = styled(Link)`
-  color: ${p => p.theme.palette.primary.contrast};
-  padding-left: ${p => p.theme.size(1)};
+const Logo = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  font-family: ${p => p.theme.typography.ui};
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: ${p => p.theme.size(2)};
+  border: 2px solid ${p => p.theme.colors.darkgray};
+  background: ${p => p.theme.colors.darkgray};
+`;
+
+const LogoNameContainer = styled.div`
+  display: flex;
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`;
+
+const FirstName = styled.span`
+  color: ${p => p.theme.colors.white};
+  font-size: ${p => p.theme.size(1.75)};
+  line-height: ${p => p.theme.sizeLH(1.75)};
+  letter-spacing: 6.75px;
+  margin-left: 4px;
+  display: block;
+`;
+
+const LastName = styled.span`
+  color: ${p => p.theme.colors.orange};
+  font-size: ${p => p.theme.size(1.25)};
+  line-height: ${p => p.theme.sizeLH(1.25)};
+  letter-spacing: 4.25px;
+`;
+
+const Music = styled.span`
+  color: ${p => p.theme.colors.black};
+  font-size: ${p => p.theme.size(1.75)};
+  line-height: ${p => p.theme.sizeLH(1.75)};
+  letter-spacing: 2px;
+`;
+
+const LogoMusicContainer = styled.div`
+  background: ${p => p.theme.colors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
 `;
 
 const Header = ({ isDrawerOpen, toggleDrawer }) => (
@@ -56,7 +102,15 @@ const Header = ({ isDrawerOpen, toggleDrawer }) => (
       >
         <Hamburger />
       </MenuIcon>
-      <Title to="/">Scott Kendall Music</Title>
+      <Logo to="/">
+        <LogoNameContainer>
+          <FirstName>Scott</FirstName>
+          <LastName>Kendall</LastName>
+        </LogoNameContainer>
+        <LogoMusicContainer>
+          <Music>Music</Music>
+        </LogoMusicContainer>
+      </Logo>
     </Top>
     <Navbar isDrawerOpen={isDrawerOpen} />
   </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'react-emotion';
+import theme from '../../utils/theme';
 
 const Hamburger = styled.span`
   transition: transform 0.3s ease-in-out;
@@ -10,7 +11,7 @@ const Hamburger = styled.span`
 const Line = styled.span`
   width: 40px;
   height: 5px;
-  background-color: white;
+  background: ${p => p.theme.colors.black};
   display: block;
   margin: 8px auto;
   transition: transform 0.3s ease-in-out;
@@ -21,12 +22,18 @@ const Menu = ({ isDrawerOpen }) => (
     <Line
       css={{
         transform: isDrawerOpen ? 'translateX(-10px) rotate(-45deg)' : 'none',
+        background: isDrawerOpen ? theme.colors.orange : theme.colors.darkgray,
       }}
     />
-    <Line />
+    <Line
+      css={{
+        background: isDrawerOpen ? theme.colors.orange : theme.colors.darkgray,
+      }}
+    />
     <Line
       css={{
         transform: isDrawerOpen ? 'translateX(-10px) rotate(45deg)' : 'none',
+        background: isDrawerOpen ? theme.colors.orange : theme.colors.darkgray,
       }}
     />
   </Hamburger>

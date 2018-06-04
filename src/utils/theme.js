@@ -2,22 +2,22 @@
  * Basic theme
  */
 
-const palette = {
-  primary: {
-    contrast: 'white',
-    main: 'linear-gradient(to right, #ffa100, #1C1C1C)',
-  },
-  secondary: {
-    contrast: 'grey',
-    main: '#242424',
-    dark: '#1C1C1C',
-  },
+const colors = {
+  gray: 'gray',
+  darkgray: '#242424',
+  white: '#fafafa',
+  black: '#1C1C1C',
+  orange: '#ffa100',
+  transparent: 'transparent',
 };
 
-const baseSize = 18;
+const baseSize = 16;
 
 const typography = {
   baseFontSize: `${baseSize}px`,
+  ui: "'Questrial', sans-serif;",
+  heading: "'Oswald', sans-serif;",
+  copy: "'Quattrocento', serif;",
 };
 
 const zIndex = {
@@ -28,8 +28,9 @@ const zIndex = {
 };
 
 export default {
-  palette,
+  colors,
   typography,
   zIndex,
   size: size => `${size * baseSize}px`,
+  sizeLH: size => `${size * baseSize + 4}px`,
 };

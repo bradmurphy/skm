@@ -13,7 +13,7 @@ const Paper = styled.aside`
   left: 0;
   height: 100vh;
   width: ${p => p.theme.size(16)};
-  background: ${p => p.theme.palette.secondary.main};
+  background: ${p => p.theme.colors.darkgray};
   transition: transform 0.3s ease-in-out;
   transform: translateX(${p => (p.isDrawerOpen ? 0 : `-${p.theme.size(16)}`)});
 `;
@@ -21,16 +21,19 @@ const Paper = styled.aside`
 const Header = styled.header`
   display: flex;
   align-items: center;
-  height: ${p => p.theme.size(4)};
-  background: ${p => p.theme.palette.secondary.dark};
+  height: ${p => p.theme.size(8)};
+  background: ${p => p.theme.colors.darkgray};
 `;
 
 const Item = styled.a`
-  color: ${p => p.theme.palette.secondary.contrast};
+  font-family: ${p => p.theme.typography.ui};
+  text-transform: uppercase;
+  color: ${p => p.theme.colors.gray};
   padding: ${p => p.theme.size(1)} ${p => p.theme.size(2)};
-  transition: background-color 0.1s ease-out;
+  transition: all 0.1s ease-out;
   &:hover {
-    background: ${p => p.theme.palette.secondary.dark};
+    color: ${p => p.theme.colors.orange};
+    background: ${p => p.theme.colors.black};
   }
   cursor: pointer;
 `;

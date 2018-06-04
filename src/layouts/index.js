@@ -20,7 +20,7 @@ const Content = styled.section`
       p.isDrawerOpen
         ? `translateX(${p.theme.size(8)}) translateZ(-20px)`
         : 'none'};
-  padding-top: ${p => p.theme.size(4)};
+  padding-top: ${p => p.theme.size(6)};
   padding-left: ${p => p.theme.size(1)};
 `;
 
@@ -29,7 +29,7 @@ const Overlay = styled.div`
   z-index: ${p => p.theme.zIndex.overlay};
   top: 0;
   left: 0;
-  background: black;
+  background: ${p => p.theme.colors.black};
   width: 100vw;
   height: 100vh;
   transition: opacity 0.3s ease-in-out;
@@ -40,13 +40,13 @@ const Overlay = styled.div`
 const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
   <ThemeProvider theme={theme}>
     <div style={{ overflowX: 'hidden' }}>
-      <Helmet
-        title="Scott Kendall Music"
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      />
+      <Helmet>
+        <title>Scott Kendall Music</title>
+        <link
+          href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento|Questrial"
+          rel="stylesheet"
+        />
+      </Helmet>
       <Container>
         <Content isDrawerOpen={isDrawerOpen}>{children()}</Content>
       </Container>
