@@ -1,35 +1,69 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
+import styled from 'react-emotion';
+import theme from '../utils/theme';
+
+import {
+  Wrap,
+  HeaderContainer,
+  Header,
+  LineBreak,
+  EntryWrap,
+  Bar,
+  EntryHeading,
+  Date,
+  Copy,
+  Listening,
+} from '../components/global';
 
 class Blog extends Component {
   render() {
     const { data } = this.props;
 
     return (
-      <div>
-        <h1>Blog</h1>
+      <Wrap>
+        <HeaderContainer>
+          <Header>Blog</Header>
+          <LineBreak />
+        </HeaderContainer>
         {data.allWordpressPost.edges.map(({ node }) => {
           const blog = node.categories[0].slug === 'blog';
           const { currently_listening_to } = node.acf;
-          const { title, content } = node;
+          const { title, content, date } = node;
 
           return (
             blog && (
-              <div css={{ marginBottom: 25 }} key={node.slug}>
-                <h4>{title}</h4>
-                <div dangerouslySetInnerHTML={{ __html: content }} />
-                <span>
-                  <span css={{ fontWeight: 'bold' }}>
-                    Currently listening to:
-                  </span>{' '}
-                  {currently_listening_to}
-                </span>
-                <hr css={{ marginTop: 25 }} />
-              </div>
+              <EntryWrap key={node.slug}>
+                <Bar>
+                  <EntryHeading>{title}</EntryHeading>
+                  <Date>{date}</Date>
+                </Bar>
+                <Copy dangerouslySetInnerHTML={{ __html: content }} />
+                <LineBreak
+                  css={{
+                    background: theme.colors.black,
+                    maxWidth: 350,
+                    margin: '25px auto',
+                  }}
+                />
+                {currently_listening_to !== '' && (
+                  <Listening>
+                    <span
+                      css={{
+                        marginRight: '5px',
+                        color: theme.colors.orange,
+                      }}
+                    >
+                      Currently listening to:
+                    </span>
+                    {currently_listening_to}
+                  </Listening>
+                )}
+              </EntryWrap>
             )
           );
         })}
-      </div>
+      </Wrap>
     );
   }
 }
@@ -45,6 +79,7 @@ export const pageQuery = graphql`
           content
           excerpt
           slug
+          date(formatString: "MMMM DD, YYYY")
           categories {
             slug
           }

@@ -10,12 +10,12 @@ import { toggleDrawer as toggleDrawerAction } from '../state/app';
 
 const Container = styled.main`
   background: ${p => p.theme.colors.offWhite};
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
 `;
 
 const Content = styled.section`
   background: transparent;
+  width: 100%;
   height: 100vh;
   transition: transform 0.3s ease-in-out;
   transform: perspective(200px)
@@ -25,6 +25,7 @@ const Content = styled.section`
         : 'none'};
   padding-top: ${p => p.theme.size(6)};
   padding-left: ${p => p.theme.size(1)};
+  overflow: auto;
 `;
 
 const Overlay = styled.div`
@@ -34,7 +35,7 @@ const Overlay = styled.div`
   left: 0;
   background: ${p => p.theme.colors.black};
   width: 100vw;
-  height: 100vh;
+  height: 100vw;
   transition: opacity 0.3s ease-in-out;
   opacity: ${p => (p.isDrawerOpen ? 0.5 : 0)};
   pointer-events: ${p => (p.isDrawerOpen ? 'all' : 'none')};
@@ -42,11 +43,11 @@ const Overlay = styled.div`
 
 const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
   <ThemeProvider theme={theme}>
-    <div style={{ overflowX: 'hidden' }}>
+    <div>
       <Helmet>
         <title>Scott Kendall Music</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento|Questrial"
+          href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento:400,700|Questrial"
           rel="stylesheet"
         />
       </Helmet>

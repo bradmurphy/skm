@@ -3,125 +3,21 @@ import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import theme from '../utils/theme';
 
-/* wrap, header and linebreak*/
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 50px 20px;
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Header = styled.h1`
-  font-family: ${p => p.theme.typography.heading};
-  font-size: ${p => p.theme.size(1.75)};
-  color: ${p => p.theme.colors.black};
-`;
-
-const LineBreak = styled.hr`
-  max-width: 150px;
-  width: 100%;
-  height: 2px;
-  background: ${p => p.theme.colors.orange};
-`;
-
-/* show */
-
-const ShowWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-const Show = styled.div`
-  background: ${p => p.theme.colors.offWhite};
-  color: ${p => p.theme.colors.offWhite};
-  max-width: 650px;
-  width: 100%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-bottom: 35px;
-`;
-
-/* details */
-
-const DetailsWrap = styled.div`
-  background: ${p => p.theme.colors.darkgray};
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 15px;
-  width: 100%;
-`;
-
-/* where */
-const When = styled.span`
-  font-family: ${p => p.theme.typography.ui};
-  font-size: ${p => p.theme.size(0.75)};
-  line-height: ${p => p.theme.sizeLH(0.75)};
-  display: block;
-  text-transform: uppercase;
-`;
-
-/* info */
-
-const InfoWrap = styled.div`
-  align-items: 'center';
-  display: 'flex';
-  flex-direction: 'row';
-  display: inherit;
-`;
-
-const InfoLink = styled.a`
-  font-family: ${p => p.theme.typography.ui};
-  color: ${p => p.theme.colors.gray};
-  font-size: ${p => p.theme.size(0.75)};
-  line-height: ${p => p.theme.sizeLH(0.75)};
-  text-decoration: none;
-  text-transform: uppercase;
-`;
-
-const Info = styled.a`
-  font-family: ${p => p.theme.typography.ui};
-  color: ${p => p.theme.colors.offWhite};
-  font-size: ${p => p.theme.size(0.75)};
-  line-height: ${p => p.theme.sizeLH(0.75)};
-  text-transform: uppercase;
-`;
-
-/* band */
-
-const Band = styled.a`
-  font-family: ${p => p.theme.typography.heading};
-  color: ${p => p.theme.colors.darkgray};
-  font-size: ${p => p.theme.size(1.25)};
-  line-height: ${p => p.theme.sizeLH(1.25)};
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 10px 15px;
-`;
-
-/* content */
-
-const Content = styled.div`
-  font-family: ${p => p.theme.typography.copy};
-  font-size: ${p => p.theme.size(0.85)};
-  line-height: ${p => p.theme.sizeLH(0.85)};
-  color: ${p => p.theme.colors.black};
-  padding: 0 15px;
-`;
+import {
+  Wrap,
+  HeaderContainer,
+  Header,
+  LineBreak,
+  ShowWrap,
+  Show,
+  Band,
+  Content,
+  DetailsWrap,
+  When,
+  Info,
+  InfoLink,
+  InfoWrap,
+} from '../components/global';
 
 class Shows extends Component {
   render() {
