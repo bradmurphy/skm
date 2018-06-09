@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { navigateTo } from 'gatsby-link';
+import styled from 'react-emotion';
+import theme from '../utils/theme';
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+import {
+  Wrap,
+  HeaderContainer,
+  Header,
+  LineBreak,
+  Copy,
+} from '../components/global';
 
-export default NotFoundPage
+class FourOhFour extends Component {
+  render() {
+    return (
+      <Wrap>
+        <HeaderContainer>
+          <Header>404</Header>
+          <LineBreak />
+          <Copy css={{ textAlign: 'center' }}>
+            This isn't a red pill, blue pill situation.<br />
+            &larr; Stick to the menu.
+          </Copy>
+        </HeaderContainer>
+      </Wrap>
+    );
+  }
+}
+
+export default FourOhFour;

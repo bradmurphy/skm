@@ -4,8 +4,6 @@ const initialState = {
     { url: '/', name: 'Home' },
     { url: '/blog/', name: 'Blog' },
     { url: '/shows/', name: 'Shows' },
-    { url: '/about/', name: 'About' },
-    { url: '/services/', name: 'Services' },
     { url: '/contact/', name: 'Contact' },
   ],
 };

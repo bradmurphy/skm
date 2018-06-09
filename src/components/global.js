@@ -160,7 +160,7 @@ const Copy = styled.div`
   font-family: ${p => p.theme.typography.copy};
   font-size: ${p => p.theme.size(1)};
   font-weight: 400;
-  line-height: ${p => p.theme.sizeLH(1)};
+  line-height: ${p => p.theme.sizeLH(1.25)};
   color: ${p => p.theme.colors.black};
   margin-top: 35px;
 `;
