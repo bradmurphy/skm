@@ -52,6 +52,8 @@ const Button = styled.button`
   text-transform: uppercase;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   cursor: pointer;
+  outline: 0;
+  border: 0;
 `;
 
 const encode = data => {
@@ -61,7 +63,7 @@ const encode = data => {
 };
 
 class Contact extends Component {
-  state = {};
+  state = { disabled: false };
 
   _handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -69,6 +71,7 @@ class Contact extends Component {
 
   _handleSubmit = e => {
     e.preventDefault();
+    this.setState({ disabled: true });
     const form = e.target;
     fetch('/', {
       method: 'POST',
@@ -129,7 +132,9 @@ class Contact extends Component {
             </Label>
           </p>
           <p>
-            <Button type="submit">Send</Button>
+            <Button type="submit" disabled={disabled}>
+              Send
+            </Button>
           </p>
         </form>
       </Wrap>
