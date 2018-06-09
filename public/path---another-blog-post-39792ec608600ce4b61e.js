@@ -1,0 +1,2 @@
+webpackJsonp([38934990288706],{367:function(o,t){o.exports={data:{wordpressPost:{id:"4691db0c-877b-5938-8f59-c109400bdbfd",title:"Another blog post.",content:"<p>Sample blogging post.</p>\n",slug:"another-blog-post",date:"June 03, 2018",categories:[{slug:"blog",name:"Blog"}]}},pathContext:{id:"4691db0c-877b-5938-8f59-c109400bdbfd"}}}});
+//# sourceMappingURL=path---another-blog-post-39792ec608600ce4b61e.js.map
