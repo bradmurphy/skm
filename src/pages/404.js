@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
-import { navigateTo } from 'gatsby-link';
-import styled from 'react-emotion';
-import theme from '../utils/theme';
-
-import {
-  Wrap,
-  HeaderContainer,
-  Header,
-  LineBreak,
-  Copy,
-} from '../components/global';
 
 class FourOhFour extends Component {
   render() {
     return (
-      <Wrap>
-        <HeaderContainer>
-          <Header>404</Header>
-          <LineBreak />
-          <Copy css={{ textAlign: 'center' }}>
-            This isn't a red pill, blue pill situation.<br />
-            &larr; Stick to the menu.
-          </Copy>
-        </HeaderContainer>
-      </Wrap>
+      <div
+        css={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        <h1
+          css={{
+            fontFamily: "'Georgia', sans-serif",
+            textAlign: 'center',
+            color: '#1c1c1c',
+            fontSize: '24px',
+            lineHeight: '30px',
+          }}
+        >
+          This isn't a red pill, blue pill situation.<br />
+          &larr; Stick to the menu.
+        </h1>
+      </div>
     );
   }
 }
