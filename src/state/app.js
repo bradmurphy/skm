@@ -6,6 +6,7 @@ const initialState = {
     { url: '/shows/', name: 'Shows' },
     { url: '/about/', name: 'About' },
     { url: '/services/', name: 'Services' },
+    { url: '/contact/', name: 'Contact' },
   ],
 };
 
