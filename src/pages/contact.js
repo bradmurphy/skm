@@ -74,7 +74,7 @@ class Contact extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'scottkendall.com | Contact Request',
+        'form-name': form.getAttribute('name'),
         ...this.state,
       }),
     })
@@ -90,7 +90,7 @@ class Contact extends Component {
           <LineBreak />
         </HeaderContainer>
         <form
-          name="contact"
+          name="scottkendallmusic-contact"
           method="post"
           action="/success/"
           data-netlify="true"
@@ -99,7 +99,11 @@ class Contact extends Component {
           css={{ width: '500px', maxWidth: '500px' }}
         >
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-          <Input type="hidden" name="form-name" value="contact" />
+          <Input
+            type="hidden"
+            name="form-name"
+            value="scottkendallmusic-contact"
+          />
           <p hidden>
             <label>
               Don’t fill this out:{' '}
