@@ -1,5 +1,58 @@
 import React, { Component } from 'react';
 import { navigateTo } from 'gatsby-link';
+import styled from 'react-emotion';
+import theme from '../utils/theme';
+
+import { Wrap, HeaderContainer, Header, LineBreak } from '../components/global';
+
+const Label = styled.label`
+  color: ${p => p.theme.colors.black};
+  font-family: ${p => p.theme.typography.ui};
+  font-size: ${p => p.theme.size(0.75)};
+  line-height: ${p => p.theme.sizeLH(0.75)};
+  display: block;
+  text-transform: uppercase;
+  width: 100%;
+`;
+
+const Input = styled.input`
+  color: ${p => p.theme.colors.darkgray};
+  font-family: ${p => p.theme.typography.copy};
+  font-size: ${p => p.theme.size(1)};
+  line-height: ${p => p.theme.sizeLH(1)};
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid ${p => p.theme.colors.darkgray};
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+`;
+
+const TextArea = styled.textarea`
+  color: ${p => p.theme.colors.black};
+  font-family: ${p => p.theme.typography.copy};
+  font-size: ${p => p.theme.size(1)};
+  line-height: ${p => p.theme.sizeLH(1)};
+  display: block;
+  width: 100%;
+  height: 175px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid ${p => p.theme.colors.black};
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+`;
+
+const Button = styled.a`
+  color: ${p => p.theme.colors.orange};
+  font-family: ${p => p.theme.typography.ui};
+  font-size: ${p => p.theme.size(1.25)};
+  line-height: ${p => p.theme.sizeLH(1.25)};
+  padding: 10px;
+  background: ${p => p.theme.colors.darkgray};
+  text-transform: uppercase;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+`;
 
 const encoode = data => {
   return Object.keys(data)
@@ -14,7 +67,7 @@ class Contact extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  __ = e => {
+  _handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
     fetch('/', {
@@ -31,8 +84,11 @@ class Contact extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Contact</h1>
+      <Wrap>
+        <HeaderContainer>
+          <Header>Contact</Header>
+          <LineBreak />
+        </HeaderContainer>
         <form
           name="contact"
           method="post"
@@ -40,38 +96,39 @@ class Contact extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this._handleSubmit}
+          css={{ width: '500px', maxWidth: '500px' }}
         >
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-          <input type="hidden" name="form-name" value="contact" />
+          <Input type="hidden" name="form-name" value="contact" />
           <p hidden>
             <label>
               Don’t fill this out:{' '}
-              <input name="bot-field" onChange={this._handleChange} />
+              <Input name="bot-field" onChange={this._handleChange} />
             </label>
           </p>
           <p>
-            <label>
-              Your name:<br />
-              <input type="text" name="name" onChange={this._handleChange} />
-            </label>
+            <Label>
+              Name:<br />
+              <Input type="text" name="name" onChange={this._handleChange} />
+            </Label>
           </p>
           <p>
-            <label>
-              Your email:<br />
-              <input type="email" name="email" onChange={this._handleChange} />
-            </label>
+            <Label>
+              Email:<br />
+              <Input type="email" name="email" onChange={this._handleChange} />
+            </Label>
           </p>
           <p>
-            <label>
+            <Label>
               Message:<br />
-              <textarea name="message" onChange={this._handleChange} />
-            </label>
+              <TextArea name="message" onChange={this._handleChange} />
+            </Label>
           </p>
           <p>
-            <button type="submit">Send</button>
+            <Button type="submit">Send</Button>
           </p>
         </form>
-      </div>
+      </Wrap>
     );
   }
 }
