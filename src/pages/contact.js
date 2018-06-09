@@ -92,7 +92,7 @@ class Contact extends Component {
         <form
           name="contact"
           method="post"
-          action="/success/"
+          action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this._handleSubmit}
