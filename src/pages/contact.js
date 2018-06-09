@@ -103,7 +103,7 @@ class Contact extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this._handleSubmit}
-          css={{ width: '500px', maxWidth: '500px' }}
+          css={{ width: '100%', maxWidth: '450px' }}
         >
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <Input
@@ -120,19 +120,29 @@ class Contact extends Component {
           <p>
             <Label>
               Name:<br />
-              <Input type="text" name="name" onChange={this._handleChange} />
+              <Input
+                type="text"
+                name="name"
+                onChange={this._handleChange}
+                required
+              />
             </Label>
           </p>
           <p>
             <Label>
               Email:<br />
-              <Input type="email" name="email" onChange={this._handleChange} />
+              <Input
+                type="email"
+                name="email"
+                onChange={this._handleChange}
+                required
+              />
             </Label>
           </p>
           <p>
             <Label>
               Message:<br />
-              <TextArea name="message" onChange={this._handleChange} />
+              <TextArea name="message" onChange={this._handleChange} required />
             </Label>
           </p>
           <p>

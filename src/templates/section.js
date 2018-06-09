@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
+import styled from 'react-emotion';
+import theme from '../utils/theme';
 
+import {
+  Wrap,
+  HeaderContainer,
+  Header,
+  LineBreak,
+  Copy,
+} from '../components/global';
 class SectionTemplate extends Component {
   render() {
     const page = this.props.data.wordpressPage;
     return (
-      <div>
-        <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
-        <div dangerouslySetInnerHTML={{ __html: page.content }} />
-      </div>
+      <Wrap>
+        <HeaderContainer>
+          <Header dangerouslySetInnerHTML={{ __html: page.title }} />
+          <LineBreak />
+        </HeaderContainer>
+        {/* <h1 dangerouslySetInnerHTML={{ __html: page.title }} /> */}
+        <Copy
+          css={{ maxWidth: 750, margin: '0 auto', width: '100%' }}
+          dangerouslySetInnerHTML={{ __html: page.content }}
+        />
+      </Wrap>
     );
   }
 }
