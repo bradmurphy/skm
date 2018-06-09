@@ -54,7 +54,7 @@ const Button = styled.a`
   cursor: pointer;
 `;
 
-const encoode = data => {
+const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
