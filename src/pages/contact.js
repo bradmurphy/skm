@@ -103,7 +103,7 @@ class Contact extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this._handleSubmit}
-          css={{ width: '100%', maxWidth: '450px' }}
+          css={{ width: '100%', maxWidth: 450 }}
         >
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <Input

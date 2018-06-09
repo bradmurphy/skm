@@ -11,7 +11,7 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 50px 20px;
+  padding: 50px 25px 50px 25px;
 `;
 
 const HeaderContainer = styled.div`
@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
 const Header = styled.h1`
   font-family: ${p => p.theme.typography.heading};
   font-size: ${p => p.theme.size(4)};
-  line-height: ${p => p.theme.size(4)};
+  line-height: ${p => p.theme.size(4.5)};
   letter-spacing: 2px;
   color: ${p => p.theme.colors.black};
   text-transform: lowercase;
@@ -105,7 +105,7 @@ const Band = styled.a`
   font-family: ${p => p.theme.typography.heading};
   color: ${p => p.theme.colors.orange};
   font-size: ${p => p.theme.size(1.75)};
-  line-height: ${p => p.theme.sizeLH(1.75)};
+  line-height: ${p => p.theme.sizeLH(2)};
   display: block;
   text-decoration: none;
   text-transform: uppercase;

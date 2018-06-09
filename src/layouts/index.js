@@ -21,10 +21,9 @@ const Content = styled.section`
   transform: perspective(200px)
     ${p =>
       p.isDrawerOpen
-        ? `translateX(${p.theme.size(8)}) translateZ(-20px)`
+        ? `translateX(${p.theme.size(8)}) translateZ(15px)`
         : 'none'};
   padding-top: ${p => p.theme.size(6)};
-  padding-left: ${p => p.theme.size(1)};
   overflow: auto;
 `;
 
