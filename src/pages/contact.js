@@ -86,6 +86,10 @@ class Contact extends Component {
   };
 
   render() {
+    const { disabled } = this.state;
+
+    const buttonStyles = [{ opacity: 1 }, disabled && { opacity: 0.75 }];
+
     return (
       <Wrap>
         <HeaderContainer>
@@ -132,7 +136,7 @@ class Contact extends Component {
             </Label>
           </p>
           <p>
-            <Button type="submit" disabled={disabled}>
+            <Button css={buttonStyles} type="submit" disabled={disabled}>
               Send
             </Button>
           </p>
