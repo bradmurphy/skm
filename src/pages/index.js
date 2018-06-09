@@ -31,7 +31,7 @@ class Home extends Component {
   componentDidMount() {
     this._renderMaxEntries();
     const overflow = document.querySelector('html');
-    overflow.style.overflow = 'overflow !important';
+    overflow.style.overflow = 'hidden';
   }
 
   _renderMaxEntries = () => {
