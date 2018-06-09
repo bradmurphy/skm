@@ -42,7 +42,7 @@ const TextArea = styled.textarea`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
-const Button = styled.a`
+const Button = styled.button`
   color: ${p => p.theme.colors.orange};
   font-family: ${p => p.theme.typography.ui};
   font-size: ${p => p.theme.size(1.25)};
@@ -74,7 +74,7 @@ class Contact extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': form.getAttribute('name'),
+        'form-name': 'scottkendall.com | Contact Request',
         ...this.state,
       }),
     })
