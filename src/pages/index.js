@@ -41,7 +41,7 @@ class Home extends Component {
 
       if (blog) {
         this.setState(prevState => ({
-          posts: [...this.state.posts, node],
+          posts: [...prevState.posts, node],
         }));
       } else if (show) {
         this.setState(prevState => ({
