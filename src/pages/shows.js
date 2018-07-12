@@ -51,9 +51,10 @@ class Shows extends Component {
                     {band.name} @ {title}
                   </Band>
                   <Featuring>Featuring</Featuring>
-                  {featuring.map(node => {
+                  {featuring.map((node, index) => {
+                    let keyID = `${node.name}${index}`;
                     return (
-                      <FeatureBand key={node.name} href={node.link}>
+                      <FeatureBand key={keyID} href={node.link}>
                         {node.name}
                       </FeatureBand>
                     );
