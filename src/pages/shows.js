@@ -33,51 +33,45 @@ class Shows extends Component {
           {data.allWordpressPost.edges.map(({ node }) => {
             const show = node.categories[0].slug === 'show';
             const { title, content } = node;
-            const {
-              show_date,
-              show_time,
-              directions,
-              venue_name,
-              venue_link,
-              band_name,
-              band_link,
-            } = node.acf;
+            const { show_date, show_time, directions, band, venue } = node.acf;
 
-            return (
-              show && (
-                <Show key={node.slug}>
-                  <Band href={band_link} target="_blank">
-                    {band_name} @ {title}
-                  </Band>
-                  <Content dangerouslySetInnerHTML={{ __html: content }} />
-                  <DetailsWrap>
-                    <When>
-                      {show_date}
-                      {' @ '}
-                      {show_time}
-                    </When>
-                    <InfoWrap>
-                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                      <InfoLink
-                        css={{ marginRight: '5px' }}
-                        href={venue_link}
-                        target="_blank"
-                      >
-                        {venue_name}
-                      </InfoLink>
-                      <Info css={{ marginRight: '5px' }}>|</Info>
-                      <InfoLink
-                        href={directions}
-                        css={{ color: theme.colors.orange }}
-                        target="_blank"
-                      >
-                        Directions
-                      </InfoLink>
-                    </InfoWrap>
-                  </DetailsWrap>
-                </Show>
-              )
-            );
+            if (venue !== null && band !== null) {
+              return (
+                show && (
+                  <Show key={node.slug}>
+                    <Band href={band.link} target="_blank">
+                      {band.name} @ {title}
+                    </Band>
+                    <Content dangerouslySetInnerHTML={{ __html: content }} />
+                    <DetailsWrap>
+                      <When>
+                        {show_date}
+                        {' @ '}
+                        {show_time}
+                      </When>
+                      <InfoWrap>
+                        <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                        <InfoLink
+                          css={{ marginRight: '5px' }}
+                          href={venue.link}
+                          target="_blank"
+                        >
+                          {venue.name}
+                        </InfoLink>
+                        <Info css={{ marginRight: '5px' }}>|</Info>
+                        <InfoLink
+                          href={directions}
+                          css={{ color: theme.colors.orange }}
+                          target="_blank"
+                        >
+                          Directions
+                        </InfoLink>
+                      </InfoWrap>
+                    </DetailsWrap>
+                  </Show>
+                )
+              );
+            }
           })}
         </ShowWrap>
       </Wrap>
@@ -102,10 +96,14 @@ export const pageQuery = graphql`
             show_date
             show_time
             directions
-            venue_name
-            venue_link
-            band_name
-            band_link
+            band {
+              link
+              name
+            }
+            venue {
+              link
+              name
+            }
           }
         }
       }

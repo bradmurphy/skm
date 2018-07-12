@@ -66,20 +66,12 @@ class Home extends Component {
         <ShowWrap>
           {shows.map((node, index) => {
             const { title, content } = node;
-            const {
-              show_date,
-              show_time,
-              directions,
-              venue_name,
-              venue_link,
-              band_name,
-              band_link,
-            } = node.acf;
+            const { show_date, show_time, directions, band, venue } = node.acf;
 
-            return index <= 1 ? (
+            return index <= 1 && venue !== null && band !== null ? (
               <Show key={node.slug}>
-                <Band href={band_link} target="_blank">
-                  {band_name} @ {title}
+                <Band href={band.link} target="_blank">
+                  {band.name} @ {title}
                 </Band>
                 <Content dangerouslySetInnerHTML={{ __html: content }} />
                 <DetailsWrap>
@@ -92,10 +84,10 @@ class Home extends Component {
                     <Info css={{ marginRight: '5px' }}>Venue:</Info>
                     <InfoLink
                       css={{ marginRight: '5px' }}
-                      href={venue_link}
+                      href={venue.link}
                       target="_blank"
                     >
-                      {venue_name}
+                      {venue.name}
                     </InfoLink>
                     <Info css={{ marginRight: '5px' }}>|</Info>
                     <InfoLink
@@ -172,11 +164,15 @@ export const pageQuery = graphql`
             show_date
             show_time
             directions
-            venue_name
-            venue_link
-            band_name
-            band_link
             currently_listening_to
+            band {
+              link
+              name
+            }
+            venue {
+              link
+              name
+            }
           }
         }
       }
