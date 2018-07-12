@@ -61,10 +61,15 @@ const DetailsWrap = styled.div`
   background: ${p => p.theme.colors.white};
   align-items: center;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   padding: 10px 15px;
   width: 100%;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const When = styled.span`
@@ -74,6 +79,11 @@ const When = styled.span`
   line-height: ${p => p.theme.sizeLH(0.75)};
   display: block;
   text-transform: uppercase;
+  margin-bottom: 5px;
+
+  @media (min-width: 600px) {
+    margin-bottom: 0;
+  }
 `;
 
 const InfoWrap = styled.div`
@@ -112,12 +122,33 @@ const Band = styled.a`
   padding: 10px 15px;
 `;
 
+const Featuring = styled.span`
+  font-family: ${p => p.theme.typography.heading};
+  color: ${p => p.theme.colors.white};
+  font-size: ${p => p.theme.size(1.25)};
+  line-height: ${p => p.theme.sizeLH(1)};
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 15px;
+`;
+
+const FeatureBand = styled.a`
+  font-family: ${p => p.theme.typography.ui};
+  color: ${p => p.theme.colors.gray};
+  font-size: ${p => p.theme.size(1)};
+  line-height: ${p => p.theme.sizeLH(1)};
+  display: block;
+  text-decoration: none;
+  padding: 0 15px;
+`;
+
 const Content = styled.div`
   font-family: ${p => p.theme.typography.copy};
   font-size: ${p => p.theme.size(0.85)};
   line-height: ${p => p.theme.sizeLH(0.85)};
   color: ${p => p.theme.colors.white};
-  padding: 0 15px;
+  padding: 10px 15px 0 15px;
 `;
 
 /* blog */
@@ -183,6 +214,8 @@ export default {
   ShowWrap,
   Show,
   Band,
+  Featuring,
+  FeatureBand,
   Content,
   DetailsWrap,
   When,

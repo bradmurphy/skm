@@ -11,6 +11,8 @@ import {
   ShowWrap,
   Show,
   Band,
+  Featuring,
+  FeatureBand,
   Content,
   DetailsWrap,
   When,
@@ -33,7 +35,14 @@ class Shows extends Component {
           {data.allWordpressPost.edges.map(({ node }) => {
             const show = node.categories[0].slug === 'show';
             const { title, content } = node;
-            const { show_date, show_time, directions, band, venue } = node.acf;
+            const {
+              show_date,
+              show_time,
+              directions,
+              band,
+              venue,
+              featuring,
+            } = node.acf;
 
             if (venue !== null && band !== null) {
               return (
@@ -42,6 +51,16 @@ class Shows extends Component {
                     <Band href={band.link} target="_blank">
                       {band.name} @ {title}
                     </Band>
+                    <Featuring>Featuring</Featuring>
+                    {featuring !== null
+                      ? featuring.map(node => {
+                          return (
+                            <FeatureBand key={node.name} href={node.link}>
+                              {node.name}
+                            </FeatureBand>
+                          );
+                        })
+                      : ''}
                     <Content dangerouslySetInnerHTML={{ __html: content }} />
                     <DetailsWrap>
                       <When>
@@ -103,6 +122,10 @@ export const pageQuery = graphql`
             venue {
               link
               name
+            }
+            featuring {
+              name
+              link
             }
           }
         }
