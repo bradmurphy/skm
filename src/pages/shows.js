@@ -44,51 +44,79 @@ class Shows extends Component {
               featuring,
             } = node.acf;
 
-            if (venue !== null && band !== null) {
-              return (
-                show && (
-                  <Show key={node.slug}>
-                    <Band href={band.link} target="_blank">
-                      {band.name} @ {title}
-                    </Band>
-                    <Featuring>Featuring</Featuring>
-                    {featuring !== null
-                      ? featuring.map(node => {
-                          return (
-                            <FeatureBand key={node.name} href={node.link}>
-                              {node.name}
-                            </FeatureBand>
-                          );
-                        })
-                      : ''}
-                    <Content dangerouslySetInnerHTML={{ __html: content }} />
-                    <DetailsWrap>
-                      <When>
-                        {show_date}
-                        {' @ '}
-                        {show_time}
-                      </When>
-                      <InfoWrap>
-                        <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                        <InfoLink
-                          css={{ marginRight: '5px' }}
-                          href={venue.link}
-                          target="_blank"
-                        >
-                          {venue.name}
-                        </InfoLink>
-                        <Info css={{ marginRight: '5px' }}>|</Info>
-                        <InfoLink
-                          href={directions}
-                          css={{ color: theme.colors.orange }}
-                          target="_blank"
-                        >
-                          Directions
-                        </InfoLink>
-                      </InfoWrap>
-                    </DetailsWrap>
-                  </Show>
-                )
+            if (venue !== null || band !== null) {
+              return featuring !== null ? (
+                <Show key={node.slug}>
+                  <Band href={band.link} target="_blank">
+                    {band.name} @ {title}
+                  </Band>
+                  <Featuring>Featuring</Featuring>
+                  {featuring.map(node => {
+                    return (
+                      <FeatureBand key={node.name} href={node.link}>
+                        {node.name}
+                      </FeatureBand>
+                    );
+                  })}
+                  <Content dangerouslySetInnerHTML={{ __html: content }} />
+                  <DetailsWrap>
+                    <When>
+                      {show_date}
+                      {' @ '}
+                      {show_time}
+                    </When>
+                    <InfoWrap>
+                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                      <InfoLink
+                        css={{ marginRight: '5px' }}
+                        href={venue.link}
+                        target="_blank"
+                      >
+                        {venue.name}
+                      </InfoLink>
+                      <Info css={{ marginRight: '5px' }}>|</Info>
+                      <InfoLink
+                        href={directions}
+                        css={{ color: theme.colors.orange }}
+                        target="_blank"
+                      >
+                        Directions
+                      </InfoLink>
+                    </InfoWrap>
+                  </DetailsWrap>
+                </Show>
+              ) : (
+                <Show key={node.slug}>
+                  <Band href={band.link} target="_blank">
+                    {band.name} @ {title}
+                  </Band>
+                  <Content dangerouslySetInnerHTML={{ __html: content }} />
+                  <DetailsWrap>
+                    <When>
+                      {show_date}
+                      {' @ '}
+                      {show_time}
+                    </When>
+                    <InfoWrap>
+                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                      <InfoLink
+                        css={{ marginRight: '5px' }}
+                        href={venue.link}
+                        target="_blank"
+                      >
+                        {venue.name}
+                      </InfoLink>
+                      <Info css={{ marginRight: '5px' }}>|</Info>
+                      <InfoLink
+                        href={directions}
+                        css={{ color: theme.colors.orange }}
+                        target="_blank"
+                      >
+                        Directions
+                      </InfoLink>
+                    </InfoWrap>
+                  </DetailsWrap>
+                </Show>
               );
             }
           })}

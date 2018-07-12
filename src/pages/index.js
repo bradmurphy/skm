@@ -77,21 +77,22 @@ class Home extends Component {
               featuring,
             } = node.acf;
 
-            return index <= 1 ? (
+            return index <= 1 &&
+              band !== null &&
+              venue !== null &&
+              featuring !== null ? (
               <Show key={node.slug}>
                 <Band href={band.link} target="_blank">
                   {band.name} @ {title}
                 </Band>
                 <Featuring>Featuring</Featuring>
-                {featuring !== null
-                  ? featuring.map(node => {
-                      return (
-                        <FeatureBand key={node.name} href={node.link}>
-                          {node.name}
-                        </FeatureBand>
-                      );
-                    })
-                  : ''}
+                {featuring.map(node => {
+                  return (
+                    <FeatureBand key={node.name} href={node.link}>
+                      {node.name}
+                    </FeatureBand>
+                  );
+                })}
                 <Content dangerouslySetInnerHTML={{ __html: content }} />
                 <DetailsWrap>
                   <When>
@@ -119,7 +120,39 @@ class Home extends Component {
                   </InfoWrap>
                 </DetailsWrap>
               </Show>
-            ) : null;
+            ) : (
+              <Show key={node.slug}>
+                <Band href={band.link} target="_blank">
+                  {band.name} @ {title}
+                </Band>
+                <Content dangerouslySetInnerHTML={{ __html: content }} />
+                <DetailsWrap>
+                  <When>
+                    {show_date}
+                    {' @ '}
+                    {show_time}
+                  </When>
+                  <InfoWrap>
+                    <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                    <InfoLink
+                      css={{ marginRight: '5px' }}
+                      href={venue.link}
+                      target="_blank"
+                    >
+                      {venue.name}
+                    </InfoLink>
+                    <Info css={{ marginRight: '5px' }}>|</Info>
+                    <InfoLink
+                      href={directions}
+                      css={{ color: theme.colors.orange }}
+                      target="_blank"
+                    >
+                      Directions
+                    </InfoLink>
+                  </InfoWrap>
+                </DetailsWrap>
+              </Show>
+            );
           })}
         </ShowWrap>
         <HeaderContainer>
