@@ -89,7 +89,7 @@ class Home extends Component {
                 {featuring.map(node => {
                   let keyID = `${node.name}${index}`;
                   return (
-                    <FeatureBand key={keyId} href={node.link}>
+                    <FeatureBand key={keyID} href={node.link}>
                       {node.name}
                     </FeatureBand>
                   );
