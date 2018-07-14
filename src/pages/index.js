@@ -57,7 +57,6 @@ class Home extends Component {
 
   render() {
     const { posts, shows } = this.state;
-    const { data } = this.props;
 
     return (
       <Wrap>
@@ -66,95 +65,105 @@ class Home extends Component {
           <LineBreak />
         </HeaderContainer>
         <ShowWrap>
-          {shows.map((node, index) => {
-            const { title, content } = node;
-            const {
-              show_date,
-              show_time,
-              directions,
-              band,
-              venue,
-              featuring,
-            } = node.acf;
+          {shows
+            .sort((a, b) => {
+              a = a.acf.show_date;
+              b = b.acf.show_date;
+              return a > b ? -1 : a < b ? 1 : 0;
+            })
+            .map((node, index) => {
+              const { title, content } = node;
+              const {
+                show_date,
+                show_time,
+                directions,
+                band,
+                venue,
+                featuring,
+              } = node.acf;
 
-            return index <= 1 &&
-              band !== null &&
-              venue !== null &&
-              featuring !== null ? (
-              <Show key={node.slug}>
-                <Band href={band.link} target="_blank">
-                  {band.name} @ {title}
-                </Band>
-                <Featuring>Featuring</Featuring>
-                {featuring.map(node => {
-                  let keyID = `${node.name}${index}`;
-                  return (
-                    <FeatureBand key={keyID} href={node.link}>
-                      {node.name}
-                    </FeatureBand>
-                  );
-                })}
-                <Content dangerouslySetInnerHTML={{ __html: content }} />
-                <DetailsWrap>
-                  <When>
-                    {show_date}
-                    {' @ '}
-                    {show_time}
-                  </When>
-                  <InfoWrap>
-                    <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                    <InfoLink
-                      css={{ marginRight: '5px' }}
-                      href={venue.link}
-                      target="_blank"
-                    >
-                      {venue.name}
-                    </InfoLink>
-                    <Info css={{ marginRight: '5px' }}>|</Info>
-                    <InfoLink
-                      href={directions}
-                      css={{ color: theme.colors.orange }}
-                      target="_blank"
-                    >
-                      Directions
-                    </InfoLink>
-                  </InfoWrap>
-                </DetailsWrap>
-              </Show>
-            ) : (
-              <Show key={node.slug}>
-                <Band href={band.link} target="_blank">
-                  {band.name} @ {title}
-                </Band>
-                <Content dangerouslySetInnerHTML={{ __html: content }} />
-                <DetailsWrap>
-                  <When>
-                    {show_date}
-                    {' @ '}
-                    {show_time}
-                  </When>
-                  <InfoWrap>
-                    <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                    <InfoLink
-                      css={{ marginRight: '5px' }}
-                      href={venue.link}
-                      target="_blank"
-                    >
-                      {venue.name}
-                    </InfoLink>
-                    <Info css={{ marginRight: '5px' }}>|</Info>
-                    <InfoLink
-                      href={directions}
-                      css={{ color: theme.colors.orange }}
-                      target="_blank"
-                    >
-                      Directions
-                    </InfoLink>
-                  </InfoWrap>
-                </DetailsWrap>
-              </Show>
-            );
-          })}
+              return featuring !== null ? (
+                <Show key={node.slug}>
+                  <Band
+                    href={band.link}
+                    target="_blank"
+                    dangerouslySetInnerHTML={{
+                      __html: `${band.name} @ ${title}`,
+                    }}
+                  />
+                  <Featuring>Featuring</Featuring>
+                  {featuring.map(node => {
+                    return (
+                      <FeatureBand
+                        key={node.name}
+                        href={node.link}
+                        dangerouslySetInnerHTML={{ __html: node.name }}
+                      />
+                    );
+                  })}
+                  <Content dangerouslySetInnerHTML={{ __html: content }} />
+                  <DetailsWrap>
+                    <When
+                      dangerouslySetInnerHTML={{
+                        __html: `${show_date} @ ${show_time}`,
+                      }}
+                    />
+                    <InfoWrap>
+                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                      <InfoLink
+                        css={{ marginRight: '5px' }}
+                        href={venue.link}
+                        target="_blank"
+                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                      />
+                      <Info css={{ marginRight: '5px' }}>|</Info>
+                      <InfoLink
+                        href={directions}
+                        css={{ color: theme.colors.orange }}
+                        target="_blank"
+                      >
+                        Directions
+                      </InfoLink>
+                    </InfoWrap>
+                  </DetailsWrap>
+                </Show>
+              ) : (
+                <Show key={node.slug}>
+                  <Band
+                    href={band.link}
+                    target="_blank"
+                    dangerouslySetInnerHTML={{
+                      __html: `${band.name} @ ${title}`,
+                    }}
+                  />
+                  <Content dangerouslySetInnerHTML={{ __html: content }} />
+                  <DetailsWrap>
+                    <When
+                      dangerouslySetInnerHTML={{
+                        __html: `${show_date} @ ${show_time}`,
+                      }}
+                    />
+                    <InfoWrap>
+                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                      <InfoLink
+                        css={{ marginRight: '5px' }}
+                        href={venue.link}
+                        target="_blank"
+                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                      />
+                      <Info css={{ marginRight: '5px' }}>|</Info>
+                      <InfoLink
+                        href={directions}
+                        css={{ color: theme.colors.orange }}
+                        target="_blank"
+                      >
+                        Directions
+                      </InfoLink>
+                    </InfoWrap>
+                  </DetailsWrap>
+                </Show>
+              );
+            })}
         </ShowWrap>
         <HeaderContainer>
           <Header>recent blog posts</Header>
@@ -167,8 +176,8 @@ class Home extends Component {
           return index <= 3 ? (
             <EntryWrap key={node.slug}>
               <Bar>
-                <EntryHeading>{title}</EntryHeading>
-                <Date>{date}</Date>
+                <EntryHeading dangerouslySetInnerHTML={{ __html: title }} />
+                <Date dangerouslySetInnerHTML={{ __html: date }} />
               </Bar>
               <Copy dangerouslySetInnerHTML={{ __html: content }} />
               <LineBreak
@@ -188,7 +197,9 @@ class Home extends Component {
                   >
                     Currently listening to:
                   </span>
-                  {currently_listening_to}
+                  <span
+                    dangerouslySetInnerHTML={{ __html: currently_listening_to }}
+                  />
                 </Listening>
               )}
             </EntryWrap>
@@ -209,7 +220,6 @@ export const pageQuery = graphql`
           title
           content
           slug
-          date(formatString: "MMMM DD, YYYY")
           categories {
             slug
           }
@@ -227,8 +237,8 @@ export const pageQuery = graphql`
               name
             }
             featuring {
-              name
               link
+              name
             }
           }
         }

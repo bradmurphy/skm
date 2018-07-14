@@ -32,49 +32,60 @@ class Shows extends Component {
           <LineBreak />
         </HeaderContainer>
         <ShowWrap>
-          {data.allWordpressPost.edges.map(({ node }) => {
-            const show = node.categories[0].slug === 'show';
-            const { title, content } = node;
-            const {
-              show_date,
-              show_time,
-              directions,
-              band,
-              venue,
-              featuring,
-            } = node.acf;
+          {data.allWordpressPost.edges
+            .filter(post => {
+              return post.node.acf.show_date;
+            })
+            .sort((a, b) => {
+              a = a.node.acf.show_date;
+              b = b.node.acf.show_date;
+              return a > b ? -1 : a < b ? 1 : 0;
+            })
+            .map(({ node }) => {
+              const { title, content } = node;
+              const {
+                show_date,
+                show_time,
+                directions,
+                band,
+                venue,
+                featuring,
+              } = node.acf;
 
-            if (venue !== null || band !== null) {
               return featuring !== null ? (
                 <Show key={node.slug}>
-                  <Band href={band.link} target="_blank">
-                    {band.name} @ {title}
-                  </Band>
+                  <Band
+                    href={band.link}
+                    target="_blank"
+                    dangerouslySetInnerHTML={{
+                      __html: `${band.name} @ ${title}`,
+                    }}
+                  />
                   <Featuring>Featuring</Featuring>
-                  {featuring.map((node, index) => {
-                    let keyID = `${node.name}${index}`;
+                  {featuring.map(node => {
                     return (
-                      <FeatureBand key={keyID} href={node.link}>
-                        {node.name}
-                      </FeatureBand>
+                      <FeatureBand
+                        key={node.name}
+                        href={node.link}
+                        dangerouslySetInnerHTML={{ __html: node.name }}
+                      />
                     );
                   })}
                   <Content dangerouslySetInnerHTML={{ __html: content }} />
                   <DetailsWrap>
-                    <When>
-                      {show_date}
-                      {' @ '}
-                      {show_time}
-                    </When>
+                    <When
+                      dangerouslySetInnerHTML={{
+                        __html: `${show_date} @ ${show_time}`,
+                      }}
+                    />
                     <InfoWrap>
                       <Info css={{ marginRight: '5px' }}>Venue:</Info>
                       <InfoLink
                         css={{ marginRight: '5px' }}
                         href={venue.link}
                         target="_blank"
-                      >
-                        {venue.name}
-                      </InfoLink>
+                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                      />
                       <Info css={{ marginRight: '5px' }}>|</Info>
                       <InfoLink
                         href={directions}
@@ -88,25 +99,28 @@ class Shows extends Component {
                 </Show>
               ) : (
                 <Show key={node.slug}>
-                  <Band href={band.link} target="_blank">
-                    {band.name} @ {title}
-                  </Band>
+                  <Band
+                    href={band.link}
+                    target="_blank"
+                    dangerouslySetInnerHTML={{
+                      __html: `${band.name} @ ${title}`,
+                    }}
+                  />
                   <Content dangerouslySetInnerHTML={{ __html: content }} />
                   <DetailsWrap>
-                    <When>
-                      {show_date}
-                      {' @ '}
-                      {show_time}
-                    </When>
+                    <When
+                      dangerouslySetInnerHTML={{
+                        __html: `${show_date} @ ${show_time}`,
+                      }}
+                    />
                     <InfoWrap>
                       <Info css={{ marginRight: '5px' }}>Venue:</Info>
                       <InfoLink
                         css={{ marginRight: '5px' }}
                         href={venue.link}
                         target="_blank"
-                      >
-                        {venue.name}
-                      </InfoLink>
+                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                      />
                       <Info css={{ marginRight: '5px' }}>|</Info>
                       <InfoLink
                         href={directions}
@@ -119,8 +133,7 @@ class Shows extends Component {
                   </DetailsWrap>
                 </Show>
               );
-            }
-          })}
+            })}
         </ShowWrap>
       </Wrap>
     );

@@ -35,8 +35,8 @@ class Blog extends Component {
             blog && (
               <EntryWrap key={node.slug}>
                 <Bar>
-                  <EntryHeading>{title}</EntryHeading>
-                  <Date>{date}</Date>
+                  <EntryHeading dangerouslySetInnerHTML={{ __html: title }} />
+                  <Date dangerouslySetInnerHTML={{ __html: date }} />
                 </Bar>
                 <Copy dangerouslySetInnerHTML={{ __html: content }} />
                 <LineBreak
@@ -56,7 +56,11 @@ class Blog extends Component {
                     >
                       Currently listening to:
                     </span>
-                    {currently_listening_to}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: currently_listening_to,
+                      }}
+                    />
                   </Listening>
                 )}
               </EntryWrap>
