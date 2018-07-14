@@ -52,7 +52,7 @@ class Shows extends Component {
                 featuring,
               } = node.acf;
 
-              return featuring[0].band !== null ? (
+              return featuring[0].name !== null ? (
                 <Show key={node.slug}>
                   <Band
                     href={band.link}
