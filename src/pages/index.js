@@ -82,7 +82,9 @@ class Home extends Component {
                 featuring,
               } = node.acf;
 
-              return featuring !== null ? (
+              console.log(featuring);
+
+              return featuring[0].band !== null ? (
                 <Show key={node.slug}>
                   <Band
                     href={band.link}
