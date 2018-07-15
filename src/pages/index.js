@@ -22,41 +22,19 @@ import {
   EntryWrap,
   Bar,
   EntryHeading,
-  Date,
+  EntryDate,
   Copy,
   Listening,
 } from '../components/global';
 
 class Home extends Component {
-  state = { posts: [], shows: [] };
-
   componentDidMount() {
-    this._renderMaxEntries();
     const overflow = document.querySelector('html');
     overflow.style.overflow = 'hidden';
   }
 
-  _renderMaxEntries = () => {
-    const { data } = this.props;
-
-    data.allWordpressPost.edges.map(({ node }) => {
-      const blog = node.categories[0].slug === 'blog';
-      const show = node.categories[0].slug === 'show';
-
-      if (blog) {
-        this.setState(prevState => ({
-          posts: [...prevState.posts, node],
-        }));
-      } else if (show) {
-        this.setState(prevState => ({
-          shows: [...prevState.shows, node],
-        }));
-      }
-    });
-  };
-
   render() {
-    const { posts, shows } = this.state;
+    const { data } = this.props;
 
     return (
       <Wrap>
@@ -65,13 +43,17 @@ class Home extends Component {
           <LineBreak />
         </HeaderContainer>
         <ShowWrap>
-          {shows
-            .sort((a, b) => {
-              a = a.acf.show_date;
-              b = b.acf.show_date;
-              return a > b ? -1 : a < b ? 1 : 0;
+          {data.allWordpressPost.edges
+            .filter(post => {
+              return post.node.acf.band;
             })
-            .map((node, index) => {
+            .sort((a, b) => {
+              a = new Date(a.node.acf.show_date);
+              b = new Date(b.node.acf.show_date);
+              console.log(a, b);
+              return a > b ? 1 : a < b ? -1 : 0;
+            })
+            .map(({ node }, index) => {
               const { title, content } = node;
               const {
                 show_date,
@@ -82,86 +64,89 @@ class Home extends Component {
                 featuring,
               } = node.acf;
 
-              return featuring[0].name !== null ? (
-                <Show key={node.slug}>
-                  <Band
-                    href={band.link}
-                    target="_blank"
-                    dangerouslySetInnerHTML={{
-                      __html: `${band.name} @ ${title}`,
-                    }}
-                  />
-                  <Featuring>Featuring</Featuring>
-                  {featuring.map(node => {
-                    return (
-                      <FeatureBand
-                        key={node.name}
-                        href={node.link}
-                        dangerouslySetInnerHTML={{ __html: node.name }}
-                      />
-                    );
-                  })}
-                  <Content dangerouslySetInnerHTML={{ __html: content }} />
-                  <DetailsWrap>
-                    <When
+              return (
+                index <= 1 &&
+                (featuring[0].name !== null ? (
+                  <Show key={node.slug}>
+                    <Band
+                      href={band.link}
+                      target="_blank"
                       dangerouslySetInnerHTML={{
-                        __html: `${show_date} @ ${show_time}`,
+                        __html: `${band.name} @ ${title}`,
                       }}
                     />
-                    <InfoWrap>
-                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                      <InfoLink
-                        css={{ marginRight: '5px' }}
-                        href={venue.link}
-                        target="_blank"
-                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                    <Featuring>Featuring</Featuring>
+                    {featuring.map(node => {
+                      return (
+                        <FeatureBand
+                          key={node.name}
+                          href={node.link}
+                          dangerouslySetInnerHTML={{ __html: node.name }}
+                        />
+                      );
+                    })}
+                    <Content dangerouslySetInnerHTML={{ __html: content }} />
+                    <DetailsWrap>
+                      <When
+                        dangerouslySetInnerHTML={{
+                          __html: `${show_date} @ ${show_time}`,
+                        }}
                       />
-                      <Info css={{ marginRight: '5px' }}>|</Info>
-                      <InfoLink
-                        href={directions}
-                        css={{ color: theme.colors.orange }}
-                        target="_blank"
-                      >
-                        Directions
-                      </InfoLink>
-                    </InfoWrap>
-                  </DetailsWrap>
-                </Show>
-              ) : (
-                <Show key={node.slug}>
-                  <Band
-                    href={band.link}
-                    target="_blank"
-                    dangerouslySetInnerHTML={{
-                      __html: `${band.name} @ ${title}`,
-                    }}
-                  />
-                  <Content dangerouslySetInnerHTML={{ __html: content }} />
-                  <DetailsWrap>
-                    <When
+                      <InfoWrap>
+                        <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                        <InfoLink
+                          css={{ marginRight: '5px' }}
+                          href={venue.link}
+                          target="_blank"
+                          dangerouslySetInnerHTML={{ __html: venue.name }}
+                        />
+                        <Info css={{ marginRight: '5px' }}>|</Info>
+                        <InfoLink
+                          href={directions}
+                          css={{ color: theme.colors.orange }}
+                          target="_blank"
+                        >
+                          Directions
+                        </InfoLink>
+                      </InfoWrap>
+                    </DetailsWrap>
+                  </Show>
+                ) : (
+                  <Show key={node.slug}>
+                    <Band
+                      href={band.link}
+                      target="_blank"
                       dangerouslySetInnerHTML={{
-                        __html: `${show_date} @ ${show_time}`,
+                        __html: `${band.name} @ ${title}`,
                       }}
                     />
-                    <InfoWrap>
-                      <Info css={{ marginRight: '5px' }}>Venue:</Info>
-                      <InfoLink
-                        css={{ marginRight: '5px' }}
-                        href={venue.link}
-                        target="_blank"
-                        dangerouslySetInnerHTML={{ __html: venue.name }}
+                    <Content dangerouslySetInnerHTML={{ __html: content }} />
+                    <DetailsWrap>
+                      <When
+                        dangerouslySetInnerHTML={{
+                          __html: `${show_date} @ ${show_time}`,
+                        }}
                       />
-                      <Info css={{ marginRight: '5px' }}>|</Info>
-                      <InfoLink
-                        href={directions}
-                        css={{ color: theme.colors.orange }}
-                        target="_blank"
-                      >
-                        Directions
-                      </InfoLink>
-                    </InfoWrap>
-                  </DetailsWrap>
-                </Show>
+                      <InfoWrap>
+                        <Info css={{ marginRight: '5px' }}>Venue:</Info>
+                        <InfoLink
+                          css={{ marginRight: '5px' }}
+                          href={venue.link}
+                          target="_blank"
+                          dangerouslySetInnerHTML={{ __html: venue.name }}
+                        />
+                        <Info css={{ marginRight: '5px' }}>|</Info>
+                        <InfoLink
+                          href={directions}
+                          css={{ color: theme.colors.orange }}
+                          target="_blank"
+                        >
+                          Directions
+                        </InfoLink>
+                      </InfoWrap>
+                    </DetailsWrap>
+                  </Show>
+                ))
               );
             })}
         </ShowWrap>
@@ -169,42 +154,48 @@ class Home extends Component {
           <Header>recent blog posts</Header>
           <LineBreak />
         </HeaderContainer>
-        {posts.map((node, index) => {
-          const { currently_listening_to } = node.acf;
-          const { title, content, date } = node;
+        {data.allWordpressPost.edges
+          .filter(post => {
+            return post.node.acf.currently_listening_to;
+          })
+          .map(({ node }, index) => {
+            const { currently_listening_to } = node.acf;
+            const { title, content, date } = node;
 
-          return index <= 3 ? (
-            <EntryWrap key={node.slug}>
-              <Bar>
-                <EntryHeading dangerouslySetInnerHTML={{ __html: title }} />
-                <Date dangerouslySetInnerHTML={{ __html: date }} />
-              </Bar>
-              <Copy dangerouslySetInnerHTML={{ __html: content }} />
-              <LineBreak
-                css={{
-                  background: theme.colors.black,
-                  maxWidth: 350,
-                  margin: '25px auto',
-                }}
-              />
-              {currently_listening_to !== '' && (
-                <Listening>
-                  <span
-                    css={{
-                      marginRight: '5px',
-                      color: theme.colors.orange,
-                    }}
-                  >
-                    Currently listening to:
-                  </span>
-                  <span
-                    dangerouslySetInnerHTML={{ __html: currently_listening_to }}
-                  />
-                </Listening>
-              )}
-            </EntryWrap>
-          ) : null;
-        })}
+            return index <= 3 ? (
+              <EntryWrap key={node.slug}>
+                <Bar>
+                  <EntryHeading dangerouslySetInnerHTML={{ __html: title }} />
+                  <EntryDate dangerouslySetInnerHTML={{ __html: date }} />
+                </Bar>
+                <Copy dangerouslySetInnerHTML={{ __html: content }} />
+                <LineBreak
+                  css={{
+                    background: theme.colors.black,
+                    maxWidth: 350,
+                    margin: '25px auto',
+                  }}
+                />
+                {currently_listening_to !== '' && (
+                  <Listening>
+                    <span
+                      css={{
+                        marginRight: '5px',
+                        color: theme.colors.orange,
+                      }}
+                    >
+                      Currently listening to:
+                    </span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: currently_listening_to,
+                      }}
+                    />
+                  </Listening>
+                )}
+              </EntryWrap>
+            ) : null;
+          })}
       </Wrap>
     );
   }
@@ -237,8 +228,8 @@ export const pageQuery = graphql`
               name
             }
             featuring {
-              link
               name
+              link
             }
           }
         }

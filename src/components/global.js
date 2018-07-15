@@ -179,7 +179,7 @@ const EntryHeading = styled.h2`
   color: ${p => p.theme.colors.darkgray};
 `;
 
-const Date = styled.span`
+const EntryDate = styled.span`
   font-family: ${p => p.theme.typography.ui};
   font-size: ${p => p.theme.size(1)};
   line-height: ${p => p.theme.sizeLH(1)};
@@ -225,7 +225,7 @@ export default {
   EntryWrap,
   Bar,
   EntryHeading,
-  Date,
+  EntryDate,
   Copy,
   Listening,
 };

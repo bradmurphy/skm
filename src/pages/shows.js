@@ -34,12 +34,12 @@ class Shows extends Component {
         <ShowWrap>
           {data.allWordpressPost.edges
             .filter(post => {
-              return post.node.acf.show_date;
+              return post.node.acf.band;
             })
             .sort((a, b) => {
-              a = a.node.acf.show_date;
-              b = b.node.acf.show_date;
-              return a > b ? -1 : a < b ? 1 : 0;
+              a = new Date(a.node.acf.show_date);
+              b = new Date(b.node.acf.show_date);
+              return a > b ? 1 : a < b ? -1 : 0;
             })
             .map(({ node }) => {
               const { title, content } = node;
@@ -144,7 +144,7 @@ export default Shows;
 
 export const pageQuery = graphql`
   query showsQuery {
-    allWordpressPost(sort: { fields: [date] }) {
+    allWordpressPost {
       edges {
         node {
           title
