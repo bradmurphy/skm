@@ -11,7 +11,7 @@ import {
   EntryWrap,
   Bar,
   EntryHeading,
-  Date,
+  EntryDate,
   Copy,
   Listening,
 } from '../components/global';
@@ -36,7 +36,7 @@ class Blog extends Component {
               <EntryWrap key={node.slug}>
                 <Bar>
                   <EntryHeading dangerouslySetInnerHTML={{ __html: title }} />
-                  <Date dangerouslySetInnerHTML={{ __html: date }} />
+                  <EntryDate dangerouslySetInnerHTML={{ __html: date }} />
                 </Bar>
                 <Copy dangerouslySetInnerHTML={{ __html: content }} />
                 <LineBreak

@@ -1,2 +1,0 @@
-webpackJsonp([0xc51b9d03c3c],{374:function(t,e){t.exports={data:{wordpressPost:{id:"991e7359-5ba0-5114-91b5-35a968224bcd",title:"Furnace Fest",content:"<p>Some extra information about the show can go here.  What bands your playing with, special instructions, etc.</p>\n",slug:"test-show",date:"June 03, 2018",categories:[{slug:"show",name:"Show"}]}},pathContext:{id:"991e7359-5ba0-5114-91b5-35a968224bcd"}}}});
-//# sourceMappingURL=path---test-show-19176acc1986dfbeb72b.js.map
