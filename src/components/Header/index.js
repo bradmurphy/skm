@@ -1,43 +1,19 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
-import { connect } from 'react-redux';
-import Hamburger from './Hamburger';
-import { toggleDrawer as toggleDrawerAction } from '../../state/app';
-
-const MenuIcon = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  align-self: stretch;
-  transition: right 0.3s ease-in-out;
-  left: ${p => (p.isDrawerOpen ? p.theme.size(1) : `-${p.theme.size(4)}`)};
-`;
-
-const Navbar = styled.div`
-  height: ${p => p.theme.size(8)};
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  z-index: ${p => p.theme.zIndex.header};
-  top: 0;
-  left: 0;
-  background: ${p => p.theme.colors.transparent};
-`;
 
 const Top = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: ${p => p.theme.size(8)};
+  justify-content: center;
+  height: 20vh;
   width: 100vw;
   position: fixed;
   z-index: ${p => p.theme.zIndex.header + 25};
   top: 0;
   left: 0;
-  padding: 20px 40px 20px 0;
+  padding: 25px 0;
+  background: ${p => p.theme.colors.offWhite};
 `;
 
 const Logo = styled(Link)`
@@ -91,16 +67,9 @@ const LogoMusicContainer = styled.div`
   padding: 15px;
 `;
 
-const Header = ({ isDrawerOpen, toggleDrawer }) => (
+const Header = () => (
   <div>
     <Top>
-      <MenuIcon
-        isDrawerOpen={isDrawerOpen}
-        href="#"
-        onClick={() => toggleDrawer(!isDrawerOpen)}
-      >
-        <Hamburger />
-      </MenuIcon>
       <Logo to="/">
         <LogoNameContainer>
           <FirstName>Scott</FirstName>
@@ -111,11 +80,7 @@ const Header = ({ isDrawerOpen, toggleDrawer }) => (
         </LogoMusicContainer>
       </Logo>
     </Top>
-    <Navbar isDrawerOpen={isDrawerOpen} />
   </div>
 );
 
-export default connect(
-  state => ({ isDrawerOpen: state.app.isDrawerOpen }),
-  dispatch => ({ toggleDrawer: open => dispatch(toggleDrawerAction(open)) }),
-)(Header);
+export default Header;

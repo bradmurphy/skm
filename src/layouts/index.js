@@ -4,43 +4,41 @@ import { connect } from 'react-redux';
 import styled from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 import Header from '../components/Header';
-import Drawer from '../components/Drawer';
 import theme from '../utils/theme';
-import { toggleDrawer as toggleDrawerAction } from '../state/app';
+import { navigateTo, withPrefix } from 'gatsby-link';
 
 const Container = styled.main`
   background: ${p => p.theme.colors.offWhite};
-  width: 100%;
+  width: 100vw;
+  height: 90vh;
 `;
 
 const Content = styled.section`
-  background: transparent;
+  background: ${p => p.theme.colors.offWhite};
   width: 100%;
-  height: 100vh;
+  height: 100%;
   transition: transform 0.3s ease-in-out;
-  transform: perspective(200px)
-    ${p =>
-      p.isDrawerOpen
-        ? `translateX(${p.theme.size(8)}) translateZ(15px)`
-        : 'none'};
   padding-top: ${p => p.theme.size(6)};
   overflow: auto;
 `;
 
-const Overlay = styled.div`
-  position: fixed;
-  z-index: ${p => p.theme.zIndex.overlay};
-  top: 0;
-  left: 0;
-  background: ${p => p.theme.colors.black};
+const Menu = styled.nav`
+  background: ${p => theme.colors.darkgray};
   width: 100vw;
-  height: 100vw;
-  transition: opacity 0.3s ease-in-out;
-  opacity: ${p => (p.isDrawerOpen ? 0.5 : 0)};
-  pointer-events: ${p => (p.isDrawerOpen ? 'all' : 'none')};
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 `;
 
-const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
+const Button = styled.a`
+  text-decoration: none;
+  font-size: 2em;
+  color: ${p => theme.colors.orange};
+`;
+
+const TemplateWrapper = ({ children, navItems }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet>
@@ -49,21 +47,41 @@ const TemplateWrapper = ({ children, isDrawerOpen, toggleDrawer }) => (
           href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento:400,700|Questrial"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+          crossorigin="anonymous"
+        />
       </Helmet>
       <Container>
-        <Content isDrawerOpen={isDrawerOpen}>{children()}</Content>
+        <Content>{children()}</Content>
       </Container>
-      <Overlay
-        isDrawerOpen={isDrawerOpen}
-        onClick={() => toggleDrawer(false)}
-      />
-      <Drawer />
       <Header />
+      <Menu>
+        <Button
+          onClick={() => {
+            navigateTo(withPrefix(navItems[0].url));
+          }}
+          className="fas fa-home"
+        />
+        <Button
+          onClick={() => {
+            navigateTo(withPrefix(navItems[1].url));
+          }}
+          className="fas fa-music"
+        />
+        <Button
+          onClick={() => {
+            navigateTo(withPrefix(navItems[2].url));
+          }}
+          className="fas fa-pen-square"
+        />
+      </Menu>
     </div>
   </ThemeProvider>
 );
 
-export default connect(
-  state => ({ isDrawerOpen: state.app.isDrawerOpen }),
-  dispatch => ({ toggleDrawer: open => dispatch(toggleDrawerAction(open)) }),
-)(TemplateWrapper);
+export default connect(state => ({
+  navItems: state.app.navItems,
+}))(TemplateWrapper);
